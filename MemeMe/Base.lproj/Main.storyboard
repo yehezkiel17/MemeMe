@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,17 +17,17 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y7v-Kp-qvE">
-                                <rect key="frame" x="16" y="96" width="288" height="396"/>
+                                <rect key="frame" x="16" y="88" width="343" height="511"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o25-KQ-tjx">
-                                        <rect key="frame" x="0.0" y="8" width="288" height="380"/>
+                                        <rect key="frame" x="0.0" y="8" width="343" height="495"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="36" translatesAutoresizingMaskIntoConstraints="NO" id="9uw-8c-zHx">
-                                        <rect key="frame" x="0.0" y="46" width="288" height="120"/>
+                                        <rect key="frame" x="0.0" y="103.5" width="343" height="120"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="azx-B6-Pi8"/>
@@ -36,7 +37,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                     </textField>
                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cdl-Bk-jzP">
-                                        <rect key="frame" x="0.0" y="230" width="288" height="120"/>
+                                        <rect key="frame" x="0.0" y="287.5" width="343" height="120"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="5Gc-KL-Wfs"/>
@@ -61,7 +62,7 @@
                                 </constraints>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMq-Bc-QEb">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="JuN-Nf-HiV"/>
                                     <barButtonItem systemItem="camera" id="a3U-rM-2QD">
@@ -79,17 +80,24 @@
                                 </items>
                             </toolbar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5T-IV-PYI">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="m1i-6k-CqL"/>
                                 </constraints>
                                 <items>
                                     <navigationItem title="MemeMe" id="HC0-sF-I7P">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="8OB-op-mQr">
-                                            <connections>
-                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="GF8-Bz-dYv"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <leftBarButtonItems>
+                                            <barButtonItem systemItem="action" id="8OB-op-mQr">
+                                                <connections>
+                                                    <action selector="shareMeme:" destination="BYZ-38-t0r" id="GF8-Bz-dYv"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Font" id="DB9-oY-NQe">
+                                                <connections>
+                                                    <action selector="changeFont:" destination="BYZ-38-t0r" id="Owl-IM-FRh"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </leftBarButtonItems>
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="aca-1V-dEa">
                                             <connections>
                                                 <action selector="cancelMeme:" destination="BYZ-38-t0r" id="E8Z-Yy-uTy"/>
@@ -108,7 +116,7 @@
                             <constraint firstItem="bMq-Bc-QEb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GpV-Fr-YD4"/>
                             <constraint firstItem="y7v-Kp-qvE" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="IFe-m4-25c"/>
                             <constraint firstItem="j5T-IV-PYI" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="JdQ-I4-gKa"/>
-                            <constraint firstItem="y7v-Kp-qvE" firstAttribute="top" secondItem="j5T-IV-PYI" secondAttribute="bottom" constant="32" id="aZR-b0-4IG"/>
+                            <constraint firstItem="y7v-Kp-qvE" firstAttribute="top" secondItem="j5T-IV-PYI" secondAttribute="bottom" constant="24" id="aZR-b0-4IG"/>
                             <constraint firstItem="y7v-Kp-qvE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bJv-Xc-sGw"/>
                             <constraint firstItem="bMq-Bc-QEb" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="heq-Vq-8lt"/>
                             <constraint firstItem="y7v-Kp-qvE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="hjT-Hh-IF3"/>

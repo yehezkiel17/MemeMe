@@ -11,6 +11,7 @@ import UIKit
 class MainController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate
 {
 	fileprivate var memedImage: UIImage?
+	fileprivate var font = "HelveticaNeue-CondensedBlack"
 
 	// MARK: Outlets
 	@IBOutlet weak var imagePickerView: UIImageView!
@@ -42,6 +43,11 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		}
 	}
 
+	// Change font
+	@IBAction func changeFont(_ sender: UIBarButtonItem) {
+		showChooseFontAlert()
+	}
+
 	// Remove edited meme
 	@IBAction func cancelMeme(_ sender: UIBarButtonItem) {
 		imagePickerView.image = nil
@@ -71,28 +77,8 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
 	// Called after the controller's view is loaded into memory.
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
-		let memeTextAttributes: [String: Any] = [
-			NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
-			NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
-			NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-			NSAttributedStringKey.strokeWidth.rawValue: -1
-		]
-
-		topText.defaultTextAttributes = memeTextAttributes
-		topText.textAlignment = .center
-		topText.textColor = .white
-		topText.text = "TOP"
-		topText.delegate = self
-
-		bottomText.defaultTextAttributes = memeTextAttributes
-		bottomText.textAlignment = .center
-		bottomText.textColor = .white
-		bottomText.text = "BOTTOM"
-		bottomText.delegate = self
-
 		shareButton.isEnabled = false
-
+		setupText()
 		addHideKeyboardGesture()
 	}
 
@@ -174,6 +160,28 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		view.endEditing(true)
 	}
 
+	// Setup text
+	func setupText() {
+		let memeTextAttributes: [String: Any] = [
+			NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
+			NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
+			NSAttributedStringKey.font.rawValue: UIFont(name: font, size: 40)!,
+			NSAttributedStringKey.strokeWidth.rawValue: -1
+		]
+
+		topText.defaultTextAttributes = memeTextAttributes
+		topText.textAlignment = .center
+		topText.textColor = .white
+		topText.text = "TOP"
+		topText.delegate = self
+
+		bottomText.defaultTextAttributes = memeTextAttributes
+		bottomText.textAlignment = .center
+		bottomText.textColor = .white
+		bottomText.text = "BOTTOM"
+		bottomText.delegate = self
+	}
+
 	// Get the keyboard height
 	func getKeyboardHeight(_ notification: Notification) -> CGFloat {
 		let userInfo = notification.userInfo
@@ -207,6 +215,31 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
 	func hideNavigationBarAndToolbar(isHidden: Bool) {
 		navigationBar.isHidden = isHidden
 		toolbar.isHidden = isHidden
+	}
+
+	// Show alert controller for choosing font
+	func showChooseFontAlert() {
+		let alertController = UIAlertController(title: "Choose The Font",
+										   message: "Please choose the font from this list",
+										   preferredStyle: .alert)
+
+		UIFont.fontNames(forFamilyName: "Helvetica Neue").forEach({ fontName in
+			let fontAction = UIAlertAction.init(title: fontName,
+												style: .default) { action in
+													self.font = fontName
+													self.setupText()
+			}
+
+			alertController.addAction(fontAction)
+		})
+
+		let okAction = UIAlertAction(title: "OK",
+									 style: .cancel) { action in
+										self.dismiss(animated: true, completion: nil)
+		}
+
+		alertController.addAction(okAction)
+		self.present(alertController, animated: true, completion: nil)
 	}
 
 	// Meme struct
