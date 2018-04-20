@@ -22,7 +22,9 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
 	@IBOutlet weak var bottomText: UITextField!
 	@IBOutlet weak var navigationBar: UINavigationBar!
 	@IBOutlet weak var toolbar: UIToolbar!
-
+	@IBOutlet weak var stackView: UIStackView!
+	@IBOutlet weak var memeView: UIView!
+	
 	// MARK: Actions
 	// Share meme
 	@IBAction func shareMeme(_ sender: UIBarButtonItem) {
@@ -51,9 +53,8 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
 	// Remove edited meme
 	@IBAction func cancelMeme(_ sender: UIBarButtonItem) {
 		imagePickerView.image = nil
-		topText.text = ""
-		bottomText.text = ""
 		shareButton.isEnabled = false
+		setupText()
 	}
 
 	// Pick an image from album
@@ -77,7 +78,9 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
 	// Called after the controller's view is loaded into memory.
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
 		shareButton.isEnabled = false
+
 		setupText()
 		addHideKeyboardGesture()
 	}
@@ -95,9 +98,19 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		unsubscribeFromKeyboardNotifications()
 	}
 
+	// Notifies the container that the size of its view is about to change.
+	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+		super.viewWillTransition(to: size, with: coordinator)
+		if UIDevice.current.orientation != .portrait {
+			stackView.axis = .vertical
+		} else {
+			stackView.axis = .horizontal
+		}
+	}
+
 	// Tells the delegate that the user picked a still image or movie.
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-		if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+		if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
 			imagePickerView.image = image
 			imagePickerView.contentMode = .scaleAspectFit
 		}
@@ -200,9 +213,9 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		hideNavigationBarAndToolbar(isHidden: true)
 
 		// Render view to an image
-		UIGraphicsBeginImageContext(self.view.frame.size)
-		view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
-		let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+		UIGraphicsBeginImageContext(view.frame.size)
+		view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
+		let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
 		UIGraphicsEndImageContext()
 
 		// Show navigation bar and toolbar
