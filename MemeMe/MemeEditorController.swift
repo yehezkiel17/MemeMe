@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate
+class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate
 {
 	fileprivate var memedImage: UIImage?
 	fileprivate var font = "HelveticaNeue-CondensedBlack"
@@ -204,7 +204,12 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
 	// Create the meme
 	func save() {
-		_ = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: memedImage!)
+		let meme = Meme(topText: topText.text!,
+						bottomText: bottomText.text!,
+						originalImage: imagePickerView.image!,
+						memedImage: memedImage!)
+
+		(UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
 	}
 
 	// Generated memed image
@@ -254,24 +259,24 @@ class MainController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		alertController.addAction(okAction)
 		self.present(alertController, animated: true, completion: nil)
 	}
+}
 
-	// Meme struct
-	struct Meme {
-		let topText: String?
-		let bottomText: String?
-		let originalImage: UIImage?
-		let memedImage: UIImage?
+// Meme struct
+public struct Meme {
+	let topText: String?
+	let bottomText: String?
+	let originalImage: UIImage?
+	let memedImage: UIImage?
 
-		init(topText: String, bottomText: String, originalImage: UIImage, memedImage: UIImage) {
-			self.topText = topText
-			self.bottomText = bottomText
-			self.originalImage = originalImage
-			self.memedImage = memedImage
+	init(topText: String, bottomText: String, originalImage: UIImage, memedImage: UIImage) {
+		self.topText = topText
+		self.bottomText = bottomText
+		self.originalImage = originalImage
+		self.memedImage = memedImage
 
-			let imageRepresentation = UIImagePNGRepresentation(self.memedImage!)
-			let imageData = UIImage(data: imageRepresentation!)
-			UIImageWriteToSavedPhotosAlbum(imageData!, nil, nil, nil)
-		}
+		let imageRepresentation = UIImagePNGRepresentation(self.memedImage!)
+		let imageData = UIImage(data: imageRepresentation!)
+		UIImageWriteToSavedPhotosAlbum(imageData!, nil, nil, nil)
 	}
 }
 
