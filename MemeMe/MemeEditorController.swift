@@ -218,8 +218,8 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, U
 		hideNavigationBarAndToolbar(isHidden: true)
 
 		// Render view to an image
-		UIGraphicsBeginImageContext(view.frame.size)
-		view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
+		UIGraphicsBeginImageContext(memeView.frame.size)
+		memeView.drawHierarchy(in: imagePickerView.frame, afterScreenUpdates: true)
 		let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
 		UIGraphicsEndImageContext()
 
