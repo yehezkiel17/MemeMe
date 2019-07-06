@@ -8,8 +8,8 @@
 
 import UIKit
 
-class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate
-{
+class MemeEditorController: UIViewController, UIImagePickerControllerDelegate,
+							UINavigationControllerDelegate, UITextFieldDelegate {
 	fileprivate var memedImage: UIImage?
 	fileprivate var font = "HelveticaNeue-CondensedBlack"
 
@@ -24,19 +24,19 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, U
 	@IBOutlet weak var toolbar: UIToolbar!
 	@IBOutlet weak var stackView: UIStackView!
 	@IBOutlet weak var memeView: UIView!
-	
 	// MARK: Actions
 	// Share meme
 	@IBAction func shareMeme(_ sender: UIBarButtonItem) {
 		memedImage = generateMemedImage()
 
 		let activityController = UIActivityViewController(activityItems: [memedImage!], applicationActivities: nil)
-		activityController.completionWithItemsHandler = {(activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
-			if completed {
-				self.save()
-				self.dismiss(animated: true, completion: nil)
+		activityController.completionWithItemsHandler = {
+			(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+				if completed {
+					self.save()
+					self.dismiss(animated: true, completion: nil)
+				}
 			}
-		}
 
 		present(activityController, animated: true, completion: nil)
 		if let popOver = activityController.popoverPresentationController {
@@ -109,8 +109,13 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, U
 	}
 
 	// Tells the delegate that the user picked a still image or movie.
-	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-		if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+	func imagePickerController(_ picker: UIImagePickerController,
+							   didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
+		if let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)]
+			as? UIImage {
 			imagePickerView.image = image
 			imagePickerView.contentMode = .scaleAspectFit
 		}
@@ -137,14 +142,16 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, U
 
 	// Subscribe to keyboard notifications
 	func subscribeToKeyboardNotifications() {
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
+											   name: UIResponder.keyboardWillShowNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)),
+											   name: UIResponder.keyboardWillHideNotification, object: nil)
 	}
 
 	// Unsubscribe to keyboard notifications
 	func unsubscribeFromKeyboardNotifications() {
-		NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
-		NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+		NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+		NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
 	}
 
 	// Selector for show keyboard
@@ -176,19 +183,19 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, U
 	// Setup text
 	func setupText() {
 		let memeTextAttributes: [String: Any] = [
-			NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
-			NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
-			NSAttributedStringKey.font.rawValue: UIFont(name: font, size: 40)!,
-			NSAttributedStringKey.strokeWidth.rawValue: -1
+			NSAttributedString.Key.strokeColor.rawValue: UIColor.black,
+			NSAttributedString.Key.foregroundColor.rawValue: UIColor.white,
+			NSAttributedString.Key.font.rawValue: UIFont(name: font, size: 40)!,
+			NSAttributedString.Key.strokeWidth.rawValue: -1
 		]
 
-		topText.defaultTextAttributes = memeTextAttributes
+		topText.defaultTextAttributes = convertToNSAttributedStringKeyDictionary(memeTextAttributes)
 		topText.textAlignment = .center
 		topText.textColor = .white
 		topText.text = "TOP"
 		topText.delegate = self
 
-		bottomText.defaultTextAttributes = memeTextAttributes
+		bottomText.defaultTextAttributes = convertToNSAttributedStringKeyDictionary(memeTextAttributes)
 		bottomText.textAlignment = .center
 		bottomText.textColor = .white
 		bottomText.text = "BOTTOM"
@@ -198,8 +205,8 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, U
 	// Get the keyboard height
 	func getKeyboardHeight(_ notification: Notification) -> CGFloat {
 		let userInfo = notification.userInfo
-		let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
-		return keyboardSize.cgRectValue.height
+		let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+		return keyboardSize?.cgRectValue.height ?? 0
 	}
 
 	// Create the meme
@@ -209,7 +216,7 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, U
 						originalImage: imagePickerView.image!,
 						memedImage: memedImage!)
 
-		(UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
+		(UIApplication.shared.delegate as? AppDelegate)?.memes.append(meme)
 	}
 
 	// Generated memed image
@@ -243,7 +250,7 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, U
 
 		UIFont.fontNames(forFamilyName: "Helvetica Neue").forEach({ fontName in
 			let fontAction = UIAlertAction.init(title: fontName,
-												style: .default) { action in
+												style: .default) { _ in
 													self.font = fontName
 													self.setupText()
 			}
@@ -252,7 +259,7 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate, U
 		})
 
 		let okAction = UIAlertAction(title: "OK",
-									 style: .cancel) { action in
+									 style: .cancel) { _ in
 										self.dismiss(animated: true, completion: nil)
 		}
 
@@ -274,9 +281,24 @@ public struct Meme {
 		self.originalImage = originalImage
 		self.memedImage = memedImage
 
-		let imageRepresentation = UIImagePNGRepresentation(self.memedImage!)
+		let imageRepresentation = self.memedImage!.pngData()
 		let imageData = UIImage(data: imageRepresentation!)
 		UIImageWriteToSavedPhotosAlbum(imageData!, nil, nil, nil)
 	}
 }
 
+// Helper function inserted by Swift 4.2 migrator.
+private func convertFromUIImagePickerControllerInfoKeyDictionary(
+	_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+private func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+private func convertToNSAttributedStringKeyDictionary(_ input: [String: Any]) -> [NSAttributedString.Key: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
