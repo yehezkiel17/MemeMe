@@ -24,6 +24,7 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate,
 	@IBOutlet weak var toolbar: UIToolbar!
 	@IBOutlet weak var stackView: UIStackView!
 	@IBOutlet weak var memeView: UIView!
+    
 	// MARK: Actions
 	// Share meme
 	@IBAction func shareMeme(_ sender: UIBarButtonItem) {
