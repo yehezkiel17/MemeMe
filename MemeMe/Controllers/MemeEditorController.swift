@@ -17,6 +17,7 @@ class MemeEditorController: UIViewController {
 	@IBOutlet weak var cameraButton: UIBarButtonItem!
 	@IBOutlet weak var albumButton: UIBarButtonItem!
 	@IBOutlet weak var shareButton: UIBarButtonItem!
+	@IBOutlet weak var cancelButton: UIBarButtonItem!
 	@IBOutlet weak var topText: UITextField!
 	@IBOutlet weak var bottomText: UITextField!
 	@IBOutlet weak var navigationBar: UINavigationBar!
@@ -48,6 +49,7 @@ class MemeEditorController: UIViewController {
 	}
 	
 	@IBAction func cancelMeme(_ sender: UIBarButtonItem) {
+		cancelButton.isEnabled = false
 		imagePickerView.image = nil
 		shareButton.isEnabled = false
 		setupText()
@@ -83,7 +85,9 @@ class MemeEditorController: UIViewController {
 		super.viewWillAppear(animated)
 		
 		subscribeToKeyboardNotifications()
+		
 		cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+		cancelButton.isEnabled = imagePickerView.image != nil
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -119,6 +123,8 @@ class MemeEditorController: UIViewController {
 	
 	private func setupNavigationBar() {
 		navigationController?.setStatusBar(backgroundColor: UIColor.systemBlue)
+		navigationController?.navigationBar.isHidden = true
+		
 		navigationBar.backgroundColor = .systemBlue
 		navigationBar.tintColor = .white
 	}
@@ -238,6 +244,7 @@ extension MemeEditorController: UIImagePickerControllerDelegate, UINavigationCon
 			imagePickerView.contentMode = .scaleAspectFit
 		}
 		shareButton.isEnabled = true
+		cancelButton.isEnabled = true
 		
 		dismiss(animated: true, completion: nil)
 	}

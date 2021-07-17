@@ -92,26 +92,23 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lC8-Fd-DD3">
-                                <rect key="frame" x="16" y="60" width="343" height="547"/>
+                                <rect key="frame" x="51.5" y="60" width="272" height="547"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y7v-Kp-qvE">
-                                        <rect key="frame" x="0.0" y="102" width="343" height="343"/>
+                                        <rect key="frame" x="0.0" y="137.5" width="272" height="272"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o25-KQ-tjx">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="343"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="o25-KQ-tjx" secondAttribute="height" multiplier="1:1" id="U7b-9U-gu4"/>
-                                                </constraints>
+                                                <rect key="frame" x="0.0" y="0.0" width="272" height="272"/>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="36" translatesAutoresizingMaskIntoConstraints="NO" id="9uw-8c-zHx">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="49.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="272" height="49.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                             </textField>
                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cdl-Bk-jzP">
-                                                <rect key="frame" x="0.0" y="293.5" width="343" height="49.5"/>
+                                                <rect key="frame" x="0.0" y="222.5" width="272" height="49.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
@@ -133,6 +130,8 @@
                                             <constraint firstAttribute="bottom" secondItem="cdl-Bk-jzP" secondAttribute="bottom" id="hBB-L6-vD2"/>
                                             <constraint firstAttribute="trailing" secondItem="o25-KQ-tjx" secondAttribute="trailing" id="mQu-Hq-NcO"/>
                                             <constraint firstItem="o25-KQ-tjx" firstAttribute="leading" secondItem="y7v-Kp-qvE" secondAttribute="leading" id="o6k-Qs-ERq"/>
+                                            <constraint firstAttribute="height" constant="272" id="qiR-kI-stJ"/>
+                                            <constraint firstAttribute="width" constant="272" id="vCn-G3-z0b"/>
                                             <constraint firstItem="o25-KQ-tjx" firstAttribute="centerY" secondItem="y7v-Kp-qvE" secondAttribute="centerY" id="zRk-aP-Xcg"/>
                                         </constraints>
                                     </view>
@@ -142,16 +141,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="j5T-IV-PYI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1G4-ad-g8B"/>
+                            <constraint firstItem="j5T-IV-PYI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1G4-ad-g8B"/>
                             <constraint firstItem="bMq-Bc-QEb" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="6sN-bF-GOB"/>
                             <constraint firstItem="lC8-Fd-DD3" firstAttribute="top" secondItem="j5T-IV-PYI" secondAttribute="bottom" constant="16" id="8lB-By-aKV"/>
                             <constraint firstItem="j5T-IV-PYI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EN8-em-QHf"/>
-                            <constraint firstItem="j5T-IV-PYI" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HzD-dk-yo7"/>
-                            <constraint firstItem="lC8-Fd-DD3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Ni5-W9-pqu"/>
-                            <constraint firstItem="bMq-Bc-QEb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="P7y-Jb-EEr"/>
+                            <constraint firstItem="j5T-IV-PYI" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="HzD-dk-yo7"/>
+                            <constraint firstItem="bMq-Bc-QEb" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="P7y-Jb-EEr"/>
                             <constraint firstItem="bMq-Bc-QEb" firstAttribute="top" secondItem="lC8-Fd-DD3" secondAttribute="bottom" constant="16" id="Sgy-7S-Hi2"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lC8-Fd-DD3" secondAttribute="trailing" constant="16" id="vFP-gM-TYu"/>
-                            <constraint firstItem="bMq-Bc-QEb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="y6w-ky-Lnx"/>
+                            <constraint firstItem="lC8-Fd-DD3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dOx-QH-sgY"/>
+                            <constraint firstItem="bMq-Bc-QEb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="y6w-ky-Lnx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dOY-pI-Inn"/>
@@ -159,6 +157,7 @@
                         <outlet property="albumButton" destination="HOJ-qS-1WU" id="3Sn-5W-FZm"/>
                         <outlet property="bottomText" destination="cdl-Bk-jzP" id="g7X-2z-dBX"/>
                         <outlet property="cameraButton" destination="a3U-rM-2QD" id="4AT-Jo-NUd"/>
+                        <outlet property="cancelButton" destination="aca-1V-dEa" id="LkJ-g5-8PC"/>
                         <outlet property="imagePickerView" destination="o25-KQ-tjx" id="Xq8-nI-Eta"/>
                         <outlet property="memeView" destination="y7v-Kp-qvE" id="Bj1-9l-boX"/>
                         <outlet property="navigationBar" destination="j5T-IV-PYI" id="6BL-D6-zAd"/>
