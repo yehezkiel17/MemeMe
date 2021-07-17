@@ -10,7 +10,7 @@ import UIKit
 
 class MemeEditorController: UIViewController {
 	fileprivate var memedImage: UIImage?
-	fileprivate var font = "HelveticaNeue-CondensedBlack"
+	fileprivate var font = "Impact"
 	
 	// MARK: Outlets
 	@IBOutlet weak var imagePickerView: UIImageView!
@@ -124,7 +124,7 @@ class MemeEditorController: UIViewController {
 		let memeTextAttributes: [String: Any] = [
 			NSAttributedString.Key.strokeColor.rawValue: UIColor.black,
 			NSAttributedString.Key.foregroundColor.rawValue: UIColor.white,
-			NSAttributedString.Key.font.rawValue: UIFont(name: font, size: 40)!,
+			NSAttributedString.Key.font.rawValue: UIFont(name: font, size: 40) ?? UIFont.boldSystemFont(ofSize: 40),
 			NSAttributedString.Key.strokeWidth.rawValue: -1
 		]
 		
