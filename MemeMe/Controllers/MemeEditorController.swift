@@ -182,15 +182,17 @@ class MemeEditorController: UIViewController {
 												message: "Please choose the font from this list",
 												preferredStyle: .alert)
 		
-		UIFont.fontNames(forFamilyName: "Helvetica Neue").forEach({ fontName in
-			let fontAction = UIAlertAction.init(title: fontName,
-												style: .default) { _ in
-				self.font = fontName
-				self.setupText()
+		for family in UIFont.familyNames {
+			for font in UIFont.fontNames(forFamilyName: family) {
+				let fontAction = UIAlertAction(title: font,
+											   style: .default) { _ in
+					self.font = font
+					self.setupText()
+				}
+				
+				alertController.addAction(fontAction)
 			}
-			
-			alertController.addAction(fontAction)
-		})
+		}
 		
 		let okAction = UIAlertAction(title: "OK",
 									 style: .cancel) { _ in
