@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PWw-Dl-YJZ">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,6 +9,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="zmZ-l9-9Oa">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="PWw-Dl-YJZ" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="e9c-jG-upY">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ts8-WD-1QJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BUH-1n-twN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-882" y="126"/>
+        </scene>
         <!--Meme Editor Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -132,6 +150,7 @@
                             <constraint firstItem="bMq-Bc-QEb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="y6w-ky-Lnx"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="dOY-pI-Inn"/>
                     <connections>
                         <outlet property="albumButton" destination="HOJ-qS-1WU" id="3Sn-5W-FZm"/>
                         <outlet property="bottomText" destination="cdl-Bk-jzP" id="g7X-2z-dBX"/>

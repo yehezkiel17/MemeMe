@@ -8,11 +8,10 @@
 
 import UIKit
 
-class MemeEditorController: UIViewController, UIImagePickerControllerDelegate,
-							UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeEditorController: UIViewController {
 	fileprivate var memedImage: UIImage?
 	fileprivate var font = "HelveticaNeue-CondensedBlack"
-
+	
 	// MARK: Outlets
 	@IBOutlet weak var imagePickerView: UIImageView!
 	@IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -24,12 +23,11 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate,
 	@IBOutlet weak var toolbar: UIToolbar!
 	@IBOutlet weak var stackView: UIStackView!
 	@IBOutlet weak var memeView: UIView!
-
+	
 	// MARK: Actions
-	// Share meme
 	@IBAction func shareMeme(_ sender: UIBarButtonItem) {
 		memedImage = generateMemedImage()
-
+		
 		let activityController = UIActivityViewController(activityItems: [memedImage!], applicationActivities: nil)
 		activityController.completionWithItemsHandler = { (_: UIActivity.ActivityType?, completed: Bool, _: [Any]?, _: Error?) in
 			if completed {
@@ -37,27 +35,24 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate,
 				self.dismiss(animated: true, completion: nil)
 			}
 		}
-
+		
 		present(activityController, animated: true, completion: nil)
 		if let popOver = activityController.popoverPresentationController {
 			popOver.sourceView = self.view
 			popOver.barButtonItem = self.shareButton
 		}
 	}
-
-	// Change font
+	
 	@IBAction func changeFont(_ sender: UIBarButtonItem) {
 		showChooseFontAlert()
 	}
-
-	// Remove edited meme
+	
 	@IBAction func cancelMeme(_ sender: UIBarButtonItem) {
 		imagePickerView.image = nil
 		shareButton.isEnabled = false
 		setupText()
 	}
-
-	// Pick an image from album
+	
 	@IBAction func pickAnImageFromAlbum(_ sender: UIBarButtonItem) {
 		let pickerController = UIImagePickerController()
 		pickerController.delegate = self
@@ -65,8 +60,7 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate,
 		pickerController.allowsEditing = true
 		present(pickerController, animated: true, completion: nil)
 	}
-
-	// Pick an image from camera
+	
 	@IBAction func pickAnImageFromCamera(_ sender: UIBarButtonItem) {
 		let pickerController = UIImagePickerController()
 		pickerController.delegate = self
@@ -74,235 +68,205 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate,
 		pickerController.allowsEditing = true
 		present(pickerController, animated: true, completion: nil)
 	}
-
+	
 	override var preferredStatusBarStyle: UIStatusBarStyle {
-		  return .lightContent
+		return .lightContent
 	}
 	
-	// Called after the controller's view is loaded into memory.
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
+		
 		shareButton.isEnabled = false
-		setStatusBar(backgroundColor: .systemBlue)
+		
+		navigationController?.setStatusBar(backgroundColor: .systemBlue)
+		navigationBar.backgroundColor = .systemBlue
+		navigationBar.tintColor = .white
 		
 		setupText()
 		addHideKeyboardGesture()
 	}
-
-	// Notifies the view controller that its view is about to be added to a view hierarchy.
+	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		
 		subscribeToKeyboardNotifications()
 		cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
 	}
-
-	// Notifies the view controller that its view is about to be removed from a view hierarchy.
+	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		unsubscribeFromKeyboardNotifications()
 	}
-
-	// Notifies the container that the size of its view is about to change.
+	
 	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 		super.viewWillTransition(to: size, with: coordinator)
+		
 		if UIDevice.current.orientation != .portrait {
 			stackView.axis = .vertical
 		} else {
 			stackView.axis = .horizontal
 		}
 	}
-
-	// Tells the delegate that the user picked a still image or movie.
-	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-		// Local variable inserted by Swift 4.2 migrator.
-		let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
-
-		if let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)]
-			as? UIImage {
-			imagePickerView.image = image
-			imagePickerView.contentMode = .scaleAspectFit
-		}
-		shareButton.isEnabled = true
-
-		dismiss(animated: true, completion: nil)
-	}
-
-	// Tells the delegate that the user cancelled the pick operation.
-	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-		dismiss(animated: true, completion: nil)
-	}
-
-	// Tells the delegate that editing began in the specified text field.
-	func textFieldDidBeginEditing(_ textField: UITextField) {
-		textField.text?.removeAll()
-	}
-
-	// Asks the delegate if the text field should process the pressing of the return button.
-	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		textField.resignFirstResponder()
-		return true
-	}
-
-	// Subscribe to keyboard notifications
-	func subscribeToKeyboardNotifications() {
+	
+	private func subscribeToKeyboardNotifications() {
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
 											   name: UIResponder.keyboardWillShowNotification, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)),
 											   name: UIResponder.keyboardWillHideNotification, object: nil)
 	}
-
-	// Unsubscribe to keyboard notifications
-	func unsubscribeFromKeyboardNotifications() {
+	
+	private func unsubscribeFromKeyboardNotifications() {
 		NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
 		NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
 	}
-
-	// Selector for show keyboard
-	@objc func keyboardWillShow(_ notification: Notification) {
-		if bottomText.isFirstResponder {
-			view.frame.origin.y -= getKeyboardHeight(notification)
-		}
-	}
-
-	// Selector for hide keyboard
-	@objc func keyboardWillHide(_ notification: Notification) {
-		view.frame.origin.y = 0
-	}
-
-	// Hide keyboard when tap everywhere in view except TextField
-	@objc func addHideKeyboardGesture() {
-		let tap: UITapGestureRecognizer = UITapGestureRecognizer(
-			target: self,
-			action: #selector(dismissKeyboard))
-
-		view.addGestureRecognizer(tap)
-	}
-
-	// End editing and dismiss the keyboard
-	@objc func dismissKeyboard() {
-		view.endEditing(true)
-	}
-
-	// Setup text
-	func setupText() {
+	
+	private func setupText() {
 		let memeTextAttributes: [String: Any] = [
 			NSAttributedString.Key.strokeColor.rawValue: UIColor.black,
 			NSAttributedString.Key.foregroundColor.rawValue: UIColor.white,
 			NSAttributedString.Key.font.rawValue: UIFont(name: font, size: 40)!,
 			NSAttributedString.Key.strokeWidth.rawValue: -1
 		]
-
+		
 		topText.defaultTextAttributes = convertToNSAttributedStringKeyDictionary(memeTextAttributes)
 		topText.textAlignment = .center
 		topText.textColor = .white
 		topText.text = "TOP"
 		topText.delegate = self
-
+		
 		bottomText.defaultTextAttributes = convertToNSAttributedStringKeyDictionary(memeTextAttributes)
 		bottomText.textAlignment = .center
 		bottomText.textColor = .white
 		bottomText.text = "BOTTOM"
 		bottomText.delegate = self
 	}
-
-	// Get the keyboard height
-	func getKeyboardHeight(_ notification: Notification) -> CGFloat {
+	
+	private func getKeyboardHeight(_ notification: Notification) -> CGFloat {
 		let userInfo = notification.userInfo
 		let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
 		return keyboardSize?.cgRectValue.height ?? 0
 	}
-
-	// Create the meme
-	func save() {
+	
+	private func save() {
 		let meme = Meme(topText: topText.text!,
 						bottomText: bottomText.text!,
 						originalImage: imagePickerView.image!,
 						memedImage: memedImage!)
-
+		
 		(UIApplication.shared.delegate as? AppDelegate)?.memes.append(meme)
 	}
-
-	// Generated memed image
-	func generateMemedImage() -> UIImage {
-		// Hide navigation bar and toolbar
+	
+	private func generateMemedImage() -> UIImage {
 		hideNavigationBarAndToolbar(isHidden: true)
-
-		// Render view to an image
+		
 		UIGraphicsBeginImageContext(memeView.frame.size)
 		memeView.drawHierarchy(in: imagePickerView.frame, afterScreenUpdates: true)
 		let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
 		UIGraphicsEndImageContext()
-
-		// Show navigation bar and toolbar
+		
 		hideNavigationBarAndToolbar(isHidden: false)
-
+		
 		return memedImage
 	}
-
-	// Hide or show the navigation bar and toolbar
-	func hideNavigationBarAndToolbar(isHidden: Bool) {
+	
+	private func hideNavigationBarAndToolbar(isHidden: Bool) {
 		navigationBar.isHidden = isHidden
 		toolbar.isHidden = isHidden
 	}
-
-	// Show alert controller for choosing font
-	func showChooseFontAlert() {
+	
+	private func showChooseFontAlert() {
 		let alertController = UIAlertController(title: "Choose The Font",
 												message: "Please choose the font from this list",
 												preferredStyle: .alert)
-
+		
 		UIFont.fontNames(forFamilyName: "Helvetica Neue").forEach({ fontName in
 			let fontAction = UIAlertAction.init(title: fontName,
 												style: .default) { _ in
 				self.font = fontName
 				self.setupText()
 			}
-
+			
 			alertController.addAction(fontAction)
 		})
-
+		
 		let okAction = UIAlertAction(title: "OK",
 									 style: .cancel) { _ in
 			self.dismiss(animated: true, completion: nil)
 		}
-
+		
 		alertController.addAction(okAction)
 		self.present(alertController, animated: true, completion: nil)
 	}
-}
-
-// Meme struct
-public struct Meme {
-	let topText: String?
-	let bottomText: String?
-	let originalImage: UIImage?
-	let memedImage: UIImage?
-
-	init(topText: String, bottomText: String, originalImage: UIImage, memedImage: UIImage) {
-		self.topText = topText
-		self.bottomText = bottomText
-		self.originalImage = originalImage
-		self.memedImage = memedImage
-
-		let imageRepresentation = self.memedImage!.pngData()
-		let imageData = UIImage(data: imageRepresentation!)
-		UIImageWriteToSavedPhotosAlbum(imageData!, nil, nil, nil)
+	
+	@objc func keyboardWillShow(_ notification: Notification) {
+		if bottomText.isFirstResponder {
+			view.frame.origin.y -= getKeyboardHeight(notification)
+		}
+	}
+	
+	@objc func keyboardWillHide(_ notification: Notification) {
+		view.frame.origin.y = 0
+	}
+	
+	@objc func addHideKeyboardGesture() {
+		let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+			target: self,
+			action: #selector(dismissKeyboard))
+		
+		view.addGestureRecognizer(tap)
+	}
+	
+	@objc func dismissKeyboard() {
+		view.endEditing(true)
 	}
 }
 
-// Helper function inserted by Swift 4.2 migrator.
+extension MemeEditorController: UIImagePickerControllerDelegate {
+	
+	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+		
+		let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+		
+		if let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)]
+			as? UIImage {
+			imagePickerView.image = image
+			imagePickerView.contentMode = .scaleAspectFit
+		}
+		shareButton.isEnabled = true
+		
+		dismiss(animated: true, completion: nil)
+	}
+}
+
+extension MemeEditorController: UINavigationControllerDelegate {
+	
+	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+		dismiss(animated: true, completion: nil)
+	}
+}
+
+extension MemeEditorController: UITextFieldDelegate {
+	
+	func textFieldDidBeginEditing(_ textField: UITextField) {
+		textField.text?.removeAll()
+	}
+	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		textField.resignFirstResponder()
+		return true
+	}
+}
+
+//MARK: -Helper function inserted by Swift 4.2 migrator.
 private func convertFromUIImagePickerControllerInfoKeyDictionary(
 	_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
 	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
 }
 
-// Helper function inserted by Swift 4.2 migrator.
 private func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
 	return input.rawValue
 }
 
-// Helper function inserted by Swift 4.2 migrator.
 private func convertToNSAttributedStringKeyDictionary(_ input: [String: Any]) -> [NSAttributedString.Key: Any] {
 	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

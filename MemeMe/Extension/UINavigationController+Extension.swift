@@ -1,5 +1,5 @@
 //
-//  UIViewController.swift
+//  UINavigationController.swift
 //  MemeMe
 //
 //  Created by Yehezkiel Litbagay on 18/07/21.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension UIViewController {
+extension UINavigationController {
 
 	func setStatusBar(backgroundColor: UIColor) {
 		let statusBarFrame: CGRect
