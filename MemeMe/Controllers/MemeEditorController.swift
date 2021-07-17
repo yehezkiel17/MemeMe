@@ -71,6 +71,10 @@ class MemeEditorController: UIViewController {
 		present(pickerController, animated: true, completion: nil)
 	}
 	
+	override var prefersStatusBarHidden: Bool {
+		return false
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -92,6 +96,7 @@ class MemeEditorController: UIViewController {
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
+		
 		unsubscribeFromKeyboardNotifications()
 	}
 	
@@ -103,10 +108,6 @@ class MemeEditorController: UIViewController {
 		} else {
 			stackView.axis = .vertical
 		}
-	}
-	
-	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .lightContent
 	}
 	
 	private func subscribeToKeyboardNotifications() {
@@ -122,9 +123,7 @@ class MemeEditorController: UIViewController {
 	}
 	
 	private func setupNavigationBar() {
-		navigationController?.setStatusBar(backgroundColor: UIColor.systemBlue)
-		navigationController?.navigationBar.isHidden = true
-		
+		navigationBar.delegate = self
 		navigationBar.backgroundColor = .systemBlue
 		navigationBar.tintColor = .white
 	}
@@ -251,6 +250,12 @@ extension MemeEditorController: UIImagePickerControllerDelegate, UINavigationCon
 	
 	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
 		dismiss(animated: true, completion: nil)
+	}
+}
+
+extension MemeEditorController: UINavigationBarDelegate {
+	func position(for bar: UIBarPositioning) -> UIBarPosition {
+		return .topAttached
 	}
 }
 

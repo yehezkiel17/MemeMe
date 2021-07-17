@@ -14,7 +14,6 @@
 		9CE95A06208448E800C210CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CE95A05208448E800C210CD /* Assets.xcassets */; };
 		9CE95A09208448E800C210CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE95A07208448E800C210CD /* LaunchScreen.storyboard */; };
 		C7914C0126A357DB00D09CA6 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7914C0026A357DB00D09CA6 /* Meme.swift */; };
-		C7914C0426A35D8A00D09CA6 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7914C0326A35D8A00D09CA6 /* UINavigationController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		9CE95A1E208448E800C210CD /* MemeMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeUITests.swift; sourceTree = "<group>"; };
 		9CE95A20208448E800C210CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7914C0026A357DB00D09CA6 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
-		C7914C0326A35D8A00D09CA6 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +64,6 @@
 		9CE959FA208448E300C210CD /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
-				C7914C0226A35D6500D09CA6 /* Extensions */,
 				C7914BFD26A3579500D09CA6 /* Controllers */,
 				C7914BFC26A3578F00D09CA6 /* Models */,
 				C7914BFE26A3579D00D09CA6 /* Views */,
@@ -119,14 +116,6 @@
 				9CE959FF208448E300C210CD /* MemeEditor.storyboard */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		C7914C0226A35D6500D09CA6 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				C7914C0326A35D8A00D09CA6 /* UINavigationController+Extension.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,7 +209,6 @@
 			files = (
 				9CE95A04208448E300C210CD /* MemeMe.xcdatamodeld in Sources */,
 				9CE959FE208448E300C210CD /* MemeEditorController.swift in Sources */,
-				C7914C0426A35D8A00D09CA6 /* UINavigationController+Extension.swift in Sources */,
 				9CE959FC208448E300C210CD /* AppDelegate.swift in Sources */,
 				C7914C0126A357DB00D09CA6 /* Meme.swift in Sources */,
 			);
