@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  MemeMe
 //
-//  Created by AIMSIS on 16/4/18.
-//  Copyright © 2018 AIMSIS. All rights reserved.
+//  Created by Yehezkiel Litbagay on 16/4/18.
+//  Copyright © 2018 Yehezkiel. All rights reserved.
 //
 
 import UIKit
@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+
 		return true
 	}
 

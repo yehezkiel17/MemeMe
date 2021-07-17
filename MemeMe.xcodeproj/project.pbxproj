@@ -13,6 +13,7 @@
 		9CE95A04208448E300C210CD /* MemeMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CE95A02208448E300C210CD /* MemeMe.xcdatamodeld */; };
 		9CE95A06208448E800C210CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CE95A05208448E800C210CD /* Assets.xcassets */; };
 		9CE95A09208448E800C210CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE95A07208448E800C210CD /* LaunchScreen.storyboard */; };
+		C7914BFB26A3512700D09CA6 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7914BFA26A3512700D09CA6 /* UINavigationController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9CE95A15208448E800C210CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CE95A1E208448E800C210CD /* MemeMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeUITests.swift; sourceTree = "<group>"; };
 		9CE95A20208448E800C210CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7914BFA26A3512700D09CA6 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				9CE959FB208448E300C210CD /* AppDelegate.swift */,
 				9CE959FD208448E300C210CD /* MemeEditorController.swift */,
+				C7914BFA26A3512700D09CA6 /* UINavigationController+Extension.swift */,
 				9CE959FF208448E300C210CD /* MemeEditor.storyboard */,
 				9CE95A05208448E800C210CD /* Assets.xcassets */,
 				9CE95A07208448E800C210CD /* LaunchScreen.storyboard */,
@@ -183,6 +186,7 @@
 				9CE95A04208448E300C210CD /* MemeMe.xcdatamodeld in Sources */,
 				9CE959FE208448E300C210CD /* MemeEditorController.swift in Sources */,
 				9CE959FC208448E300C210CD /* AppDelegate.swift in Sources */,
+				C7914BFB26A3512700D09CA6 /* UINavigationController+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

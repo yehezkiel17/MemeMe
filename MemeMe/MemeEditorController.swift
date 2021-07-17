@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  MemeMe
 //
-//  Created by AIMSIS on 16/4/18.
-//  Copyright © 2018 AIMSIS. All rights reserved.
+//  Created by Yehezkiel Litbagay on 16/4/18.
+//  Copyright © 2018 Yehezkiel. All rights reserved.
 //
 
 import UIKit
@@ -84,7 +84,8 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate,
 		super.viewDidLoad()
 
 		shareButton.isEnabled = false
-
+		setStatusBar(backgroundColor: .systemBlue)
+		
 		setupText()
 		addHideKeyboardGesture()
 	}
