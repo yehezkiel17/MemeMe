@@ -94,10 +94,10 @@ class MemeEditorController: UIViewController {
 	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 		super.viewWillTransition(to: size, with: coordinator)
 		
-		if UIDevice.current.orientation != .portrait {
-			stackView.axis = .vertical
-		} else {
+		if UIDevice.current.orientation == .portrait {
 			stackView.axis = .horizontal
+		} else {
+			stackView.axis = .vertical
 		}
 	}
 	
@@ -226,7 +226,7 @@ class MemeEditorController: UIViewController {
 	}
 }
 
-extension MemeEditorController: UIImagePickerControllerDelegate {
+extension MemeEditorController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 	
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
 		
@@ -241,9 +241,6 @@ extension MemeEditorController: UIImagePickerControllerDelegate {
 		
 		dismiss(animated: true, completion: nil)
 	}
-}
-
-extension MemeEditorController: UINavigationControllerDelegate {
 	
 	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
 		dismiss(animated: true, completion: nil)
