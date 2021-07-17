@@ -7,41 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E8C3E6EFF7CA3CBD114BACC /* Pods_MemeMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C8266EDAFDE6C17A68713A /* Pods_MemeMeTests.framework */; };
-		2E91B5283D02001C1B36AC73 /* Pods_MemeMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E48B6674D34AEA0AE3D11B /* Pods_MemeMe.framework */; };
-		5DB643AB7668B3B9F3C65916 /* Pods_MemeMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9132C82146BC54301910624 /* Pods_MemeMeUITests.framework */; };
 		9CE959FC208448E300C210CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE959FB208448E300C210CD /* AppDelegate.swift */; };
 		9CE959FE208448E300C210CD /* MemeEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE959FD208448E300C210CD /* MemeEditorController.swift */; };
 		9CE95A01208448E300C210CD /* MemeEditor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE959FF208448E300C210CD /* MemeEditor.storyboard */; };
 		9CE95A04208448E300C210CD /* MemeMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CE95A02208448E300C210CD /* MemeMe.xcdatamodeld */; };
 		9CE95A06208448E800C210CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CE95A05208448E800C210CD /* Assets.xcassets */; };
 		9CE95A09208448E800C210CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE95A07208448E800C210CD /* LaunchScreen.storyboard */; };
-		9CE95A14208448E800C210CD /* MemeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE95A13208448E800C210CD /* MemeMeTests.swift */; };
-		9CE95A1F208448E800C210CD /* MemeMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE95A1E208448E800C210CD /* MemeMeUITests.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		9CE95A10208448E800C210CD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9CE959F0208448E300C210CD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9CE959F7208448E300C210CD;
-			remoteInfo = MemeMe;
-		};
-		9CE95A1B208448E800C210CD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9CE959F0208448E300C210CD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9CE959F7208448E300C210CD;
-			remoteInfo = MemeMe;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		1F2B758E6B2AD2094221C720 /* Pods-MemeMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MemeMe/Pods-MemeMe.debug.xcconfig"; sourceTree = "<group>"; };
-		31E48B6674D34AEA0AE3D11B /* Pods_MemeMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemeMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		36C8266EDAFDE6C17A68713A /* Pods_MemeMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemeMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		556C3204FBE7D5CB5E994747 /* Pods-MemeMeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeMeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MemeMeUITests/Pods-MemeMeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9CE959F8208448E300C210CD /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE959FB208448E300C210CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CE959FD208448E300C210CD /* MemeEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeEditorController.swift; sourceTree = "<group>"; };
@@ -50,17 +24,10 @@
 		9CE95A05208448E800C210CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CE95A08208448E800C210CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CE95A0A208448E800C210CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9CE95A0F208448E800C210CD /* MemeMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemeMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE95A13208448E800C210CD /* MemeMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeTests.swift; sourceTree = "<group>"; };
 		9CE95A15208448E800C210CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9CE95A1A208448E800C210CD /* MemeMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemeMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE95A1E208448E800C210CD /* MemeMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeUITests.swift; sourceTree = "<group>"; };
 		9CE95A20208448E800C210CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F73AFC6024751832CC730EB /* Pods-MemeMeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeMeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MemeMeTests/Pods-MemeMeTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B5643D769C71F60302307091 /* Pods-MemeMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeMeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MemeMeTests/Pods-MemeMeTests.release.xcconfig"; sourceTree = "<group>"; };
-		F29C1CB4B644ADDA777E0C9E /* Pods-MemeMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-MemeMe/Pods-MemeMe.release.xcconfig"; sourceTree = "<group>"; };
-		F9132C82146BC54301910624 /* Pods_MemeMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemeMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F945E3B3BF9F3B405746C4DB /* Pods-MemeMeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeMeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MemeMeUITests/Pods-MemeMeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,23 +35,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E91B5283D02001C1B36AC73 /* Pods_MemeMe.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9CE95A0C208448E800C210CD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2E8C3E6EFF7CA3CBD114BACC /* Pods_MemeMeTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9CE95A17208448E800C210CD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5DB643AB7668B3B9F3C65916 /* Pods_MemeMeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,8 +48,6 @@
 				9CE95A12208448E800C210CD /* MemeMeTests */,
 				9CE95A1D208448E800C210CD /* MemeMeUITests */,
 				9CE959F9208448E300C210CD /* Products */,
-				BE562275EFD015055F244224 /* Pods */,
-				D32E77EE4343686A9DEFC0FF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,8 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				9CE959F8208448E300C210CD /* MemeMe.app */,
-				9CE95A0F208448E800C210CD /* MemeMeTests.xctest */,
-				9CE95A1A208448E800C210CD /* MemeMeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,29 +91,6 @@
 			path = MemeMeUITests;
 			sourceTree = "<group>";
 		};
-		BE562275EFD015055F244224 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1F2B758E6B2AD2094221C720 /* Pods-MemeMe.debug.xcconfig */,
-				F29C1CB4B644ADDA777E0C9E /* Pods-MemeMe.release.xcconfig */,
-				9F73AFC6024751832CC730EB /* Pods-MemeMeTests.debug.xcconfig */,
-				B5643D769C71F60302307091 /* Pods-MemeMeTests.release.xcconfig */,
-				F945E3B3BF9F3B405746C4DB /* Pods-MemeMeUITests.debug.xcconfig */,
-				556C3204FBE7D5CB5E994747 /* Pods-MemeMeUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		D32E77EE4343686A9DEFC0FF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				31E48B6674D34AEA0AE3D11B /* Pods_MemeMe.framework */,
-				36C8266EDAFDE6C17A68713A /* Pods_MemeMeTests.framework */,
-				F9132C82146BC54301910624 /* Pods_MemeMeUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -175,7 +98,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9CE95A23208448E800C210CD /* Build configuration list for PBXNativeTarget "MemeMe" */;
 			buildPhases = (
-				BF3D43A2F8D62236BA364A0B /* [CP] Check Pods Manifest.lock */,
 				9CE959F4208448E300C210CD /* Sources */,
 				9CE959F5208448E300C210CD /* Frameworks */,
 				9CE959F6208448E300C210CD /* Resources */,
@@ -190,44 +112,6 @@
 			productReference = 9CE959F8208448E300C210CD /* MemeMe.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9CE95A0E208448E800C210CD /* MemeMeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9CE95A26208448E800C210CD /* Build configuration list for PBXNativeTarget "MemeMeTests" */;
-			buildPhases = (
-				80B3DC8EE60EED64A411552F /* [CP] Check Pods Manifest.lock */,
-				9CE95A0B208448E800C210CD /* Sources */,
-				9CE95A0C208448E800C210CD /* Frameworks */,
-				9CE95A0D208448E800C210CD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9CE95A11208448E800C210CD /* PBXTargetDependency */,
-			);
-			name = MemeMeTests;
-			productName = MemeMeTests;
-			productReference = 9CE95A0F208448E800C210CD /* MemeMeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		9CE95A19208448E800C210CD /* MemeMeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9CE95A29208448E800C210CD /* Build configuration list for PBXNativeTarget "MemeMeUITests" */;
-			buildPhases = (
-				6E530481CD6F6983C99419A0 /* [CP] Check Pods Manifest.lock */,
-				9CE95A16208448E800C210CD /* Sources */,
-				9CE95A17208448E800C210CD /* Frameworks */,
-				9CE95A18208448E800C210CD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9CE95A1C208448E800C210CD /* PBXTargetDependency */,
-			);
-			name = MemeMeUITests;
-			productName = MemeMeUITests;
-			productReference = 9CE95A1A208448E800C210CD /* MemeMeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -241,16 +125,6 @@
 					9CE959F7208448E300C210CD = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 1020;
-					};
-					9CE95A0E208448E800C210CD = {
-						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 1020;
-						TestTargetID = 9CE959F7208448E300C210CD;
-					};
-					9CE95A19208448E800C210CD = {
-						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 1020;
-						TestTargetID = 9CE959F7208448E300C210CD;
 					};
 				};
 			};
@@ -268,8 +142,6 @@
 			projectRoot = "";
 			targets = (
 				9CE959F7208448E300C210CD /* MemeMe */,
-				9CE95A0E208448E800C210CD /* MemeMeTests */,
-				9CE95A19208448E800C210CD /* MemeMeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -285,20 +157,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9CE95A0D208448E800C210CD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9CE95A18208448E800C210CD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -307,83 +165,13 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		6E530481CD6F6983C99419A0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MemeMeUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		80B3DC8EE60EED64A411552F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MemeMeTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BF3D43A2F8D62236BA364A0B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MemeMe-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -398,36 +186,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9CE95A0B208448E800C210CD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9CE95A14208448E800C210CD /* MemeMeTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9CE95A16208448E800C210CD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9CE95A1F208448E800C210CD /* MemeMeUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		9CE95A11208448E800C210CD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9CE959F7208448E300C210CD /* MemeMe */;
-			targetProxy = 9CE95A10208448E800C210CD /* PBXContainerItemProxy */;
-		};
-		9CE95A1C208448E800C210CD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9CE959F7208448E300C210CD /* MemeMe */;
-			targetProxy = 9CE95A1B208448E800C210CD /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9CE959FF208448E300C210CD /* MemeEditor.storyboard */ = {
@@ -565,19 +324,20 @@
 		};
 		9CE95A24208448E800C210CD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F2B758E6B2AD2094221C720 /* Pods-MemeMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SBK2FUUPNT;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = LQ7GB9S9DF;
 				INFOPLIST_FILE = MemeMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.udacity.yehezkiel.MemeMe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yehezkiel.MemeMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Kiel Development Provisioning Profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -585,107 +345,22 @@
 		};
 		9CE95A25208448E800C210CD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F29C1CB4B644ADDA777E0C9E /* Pods-MemeMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SBK2FUUPNT;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = LQ7GB9S9DF;
 				INFOPLIST_FILE = MemeMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.udacity.yehezkiel.MemeMe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yehezkiel.MemeMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Kiel Development Provisioning Profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		9CE95A27208448E800C210CD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F73AFC6024751832CC730EB /* Pods-MemeMeTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SGT3RQ7HTZ;
-				INFOPLIST_FILE = MemeMeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.udacity.yehezkiel.MemeMeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemeMe.app/MemeMe";
-			};
-			name = Debug;
-		};
-		9CE95A28208448E800C210CD /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5643D769C71F60302307091 /* Pods-MemeMeTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SGT3RQ7HTZ;
-				INFOPLIST_FILE = MemeMeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.udacity.yehezkiel.MemeMeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemeMe.app/MemeMe";
-			};
-			name = Release;
-		};
-		9CE95A2A208448E800C210CD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F945E3B3BF9F3B405746C4DB /* Pods-MemeMeUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SGT3RQ7HTZ;
-				INFOPLIST_FILE = MemeMeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.udacity.yehezkiel.MemeMeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MemeMe;
-			};
-			name = Debug;
-		};
-		9CE95A2B208448E800C210CD /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 556C3204FBE7D5CB5E994747 /* Pods-MemeMeUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SGT3RQ7HTZ;
-				INFOPLIST_FILE = MemeMeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.udacity.yehezkiel.MemeMeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MemeMe;
 			};
 			name = Release;
 		};
@@ -706,24 +381,6 @@
 			buildConfigurations = (
 				9CE95A24208448E800C210CD /* Debug */,
 				9CE95A25208448E800C210CD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9CE95A26208448E800C210CD /* Build configuration list for PBXNativeTarget "MemeMeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9CE95A27208448E800C210CD /* Debug */,
-				9CE95A28208448E800C210CD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9CE95A29208448E800C210CD /* Build configuration list for PBXNativeTarget "MemeMeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9CE95A2A208448E800C210CD /* Debug */,
-				9CE95A2B208448E800C210CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
