@@ -69,19 +69,12 @@ class MemeEditorController: UIViewController {
 		present(pickerController, animated: true, completion: nil)
 	}
 	
-	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .lightContent
-	}
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		shareButton.isEnabled = false
 		
-		navigationController?.setStatusBar(backgroundColor: .systemBlue)
-		navigationBar.backgroundColor = .systemBlue
-		navigationBar.tintColor = .white
-		
+		setupNavigationBar()
 		setupText()
 		addHideKeyboardGesture()
 	}
@@ -108,6 +101,10 @@ class MemeEditorController: UIViewController {
 		}
 	}
 	
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .lightContent
+	}
+	
 	private func subscribeToKeyboardNotifications() {
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
 											   name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -118,6 +115,12 @@ class MemeEditorController: UIViewController {
 	private func unsubscribeFromKeyboardNotifications() {
 		NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
 		NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+	}
+	
+	private func setupNavigationBar() {
+		navigationController?.setStatusBar(backgroundColor: UIColor.systemBlue)
+		navigationBar.backgroundColor = .systemBlue
+		navigationBar.tintColor = .white
 	}
 	
 	private func setupText() {

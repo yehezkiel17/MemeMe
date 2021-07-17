@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UINavigationController {
-
+	
 	func setStatusBar(backgroundColor: UIColor) {
 		let statusBarFrame: CGRect
 		
