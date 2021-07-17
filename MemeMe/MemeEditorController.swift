@@ -75,6 +75,10 @@ class MemeEditorController: UIViewController, UIImagePickerControllerDelegate,
 		present(pickerController, animated: true, completion: nil)
 	}
 
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		  return .lightContent
+	}
+	
 	// Called after the controller's view is loaded into memory.
 	override func viewDidLoad() {
 		super.viewDidLoad()
