@@ -30,7 +30,7 @@ class MemeEditorController: UIViewController {
 		memedImage = generateMemedImage()
 		
 		let activityController = UIActivityViewController(activityItems: [memedImage!], applicationActivities: nil)
-		activityController.completionWithItemsHandler = { (_: UIActivity.ActivityType?, completed: Bool, _: [Any]?, _: Error?) in
+		activityController.completionWithItemsHandler = { (_, completed, _, _) in
 			if completed {
 				self.save()
 				self.dismiss(animated: true, completion: nil)
