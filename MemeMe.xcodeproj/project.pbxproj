@@ -17,6 +17,7 @@
 		C7914C0626A46AE100D09CA6 /* MemeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7914C0526A46AE100D09CA6 /* MemeTableViewController.swift */; };
 		C7914C0826A46B1C00D09CA6 /* MemeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7914C0726A46B1C00D09CA6 /* MemeCollectionViewController.swift */; };
 		C7914C0B26A474E400D09CA6 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7914C0A26A474E400D09CA6 /* UIViewController + Extension.swift */; };
+		C7914C0D26A4A81800D09CA6 /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7914C0C26A4A81800D09CA6 /* MemeCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C7914C0526A46AE100D09CA6 /* MemeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeTableViewController.swift; sourceTree = "<group>"; };
 		C7914C0726A46B1C00D09CA6 /* MemeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewController.swift; sourceTree = "<group>"; };
 		C7914C0A26A474E400D09CA6 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		C7914C0C26A4A81800D09CA6 /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				9CE959FF208448E300C210CD /* MemeEditor.storyboard */,
+				C7914C0C26A4A81800D09CA6 /* MemeCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			files = (
 				9CE95A04208448E300C210CD /* MemeMe.xcdatamodeld in Sources */,
 				9CE959FE208448E300C210CD /* MemeEditorController.swift in Sources */,
+				C7914C0D26A4A81800D09CA6 /* MemeCollectionViewCell.swift in Sources */,
 				9CE959FC208448E300C210CD /* AppDelegate.swift in Sources */,
 				C7914C0B26A474E400D09CA6 /* UIViewController + Extension.swift in Sources */,
 				C7914C0626A46AE100D09CA6 /* MemeTableViewController.swift in Sources */,
