@@ -73,14 +73,14 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="272" height="272"/>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="36" translatesAutoresizingMaskIntoConstraints="NO" id="9uw-8c-zHx">
-                                                <rect key="frame" x="0.0" y="0.0" width="272" height="49.5"/>
+                                                <rect key="frame" x="20" y="0.0" width="232" height="49.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                             </textField>
                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cdl-Bk-jzP">
-                                                <rect key="frame" x="0.0" y="222.5" width="272" height="49.5"/>
+                                                <rect key="frame" x="20" y="222.5" width="232" height="49.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
@@ -90,13 +90,13 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="cdl-Bk-jzP" firstAttribute="centerX" secondItem="y7v-Kp-qvE" secondAttribute="centerX" id="4Gd-QC-w8q"/>
-                                            <constraint firstAttribute="trailing" secondItem="9uw-8c-zHx" secondAttribute="trailing" id="6zW-2J-L5y"/>
+                                            <constraint firstAttribute="trailing" secondItem="9uw-8c-zHx" secondAttribute="trailing" constant="20" id="6zW-2J-L5y"/>
                                             <constraint firstItem="o25-KQ-tjx" firstAttribute="top" secondItem="y7v-Kp-qvE" secondAttribute="top" id="Cvn-UK-ElR"/>
                                             <constraint firstItem="9uw-8c-zHx" firstAttribute="top" secondItem="y7v-Kp-qvE" secondAttribute="top" id="GYu-GO-5GW"/>
-                                            <constraint firstItem="cdl-Bk-jzP" firstAttribute="leading" secondItem="y7v-Kp-qvE" secondAttribute="leading" id="Jem-jo-OV0"/>
-                                            <constraint firstAttribute="trailing" secondItem="cdl-Bk-jzP" secondAttribute="trailing" id="Nyl-H0-Dlg"/>
+                                            <constraint firstItem="cdl-Bk-jzP" firstAttribute="leading" secondItem="y7v-Kp-qvE" secondAttribute="leading" constant="20" id="Jem-jo-OV0"/>
+                                            <constraint firstAttribute="trailing" secondItem="cdl-Bk-jzP" secondAttribute="trailing" constant="20" id="Nyl-H0-Dlg"/>
                                             <constraint firstItem="o25-KQ-tjx" firstAttribute="centerX" secondItem="y7v-Kp-qvE" secondAttribute="centerX" id="TBq-0D-L2T"/>
-                                            <constraint firstItem="9uw-8c-zHx" firstAttribute="leading" secondItem="y7v-Kp-qvE" secondAttribute="leading" id="X2p-U9-uTZ"/>
+                                            <constraint firstItem="9uw-8c-zHx" firstAttribute="leading" secondItem="y7v-Kp-qvE" secondAttribute="leading" constant="20" id="X2p-U9-uTZ"/>
                                             <constraint firstAttribute="bottom" secondItem="o25-KQ-tjx" secondAttribute="bottom" id="YpH-Ig-Y8U"/>
                                             <constraint firstItem="9uw-8c-zHx" firstAttribute="centerX" secondItem="y7v-Kp-qvE" secondAttribute="centerX" id="a3z-ez-n0h"/>
                                             <constraint firstAttribute="bottom" secondItem="cdl-Bk-jzP" secondAttribute="bottom" id="hBB-L6-vD2"/>
