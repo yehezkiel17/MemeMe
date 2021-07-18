@@ -9,10 +9,8 @@
 import UIKit
 
 class MemeEditorController: UIViewController {
-	fileprivate var memedImage: UIImage?
-	fileprivate var font = "Impact"
 	
-	// MARK: Outlets
+	// MARK: -Outlets
 	@IBOutlet weak var imagePickerView: UIImageView!
 	@IBOutlet weak var cameraButton: UIBarButtonItem!
 	@IBOutlet weak var albumButton: UIBarButtonItem!
@@ -25,7 +23,51 @@ class MemeEditorController: UIViewController {
 	@IBOutlet weak var stackView: UIStackView!
 	@IBOutlet weak var memeView: UIView!
 	
-	// MARK: Actions
+	// MARK: -Variables/Constants
+	fileprivate var memedImage: UIImage?
+	fileprivate var font = "Impact"
+	
+	// MARK: -Lifecycle Methods
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		shareButton.isEnabled = false
+		
+		setupNavigationBar()
+		setupText()
+		addHideKeyboardGesture()
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		subscribeToKeyboardNotifications()
+		
+		cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+		cancelButton.isEnabled = imagePickerView.image != nil
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		
+		unsubscribeFromKeyboardNotifications()
+	}
+	
+	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+		super.viewWillTransition(to: size, with: coordinator)
+		
+		if UIDevice.current.orientation == .portrait {
+			stackView.axis = .horizontal
+		} else {
+			stackView.axis = .vertical
+		}
+	}
+	
+	override var prefersStatusBarHidden: Bool {
+		return false
+	}
+	
+	// MARK: -Actions
 	@IBAction func shareMeme(_ sender: UIBarButtonItem) {
 		memedImage = generateMemedImage()
 		
@@ -63,45 +105,7 @@ class MemeEditorController: UIViewController {
 		pickImage(source: .camera)
 	}
 	
-	override var prefersStatusBarHidden: Bool {
-		return false
-	}
-	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		
-		shareButton.isEnabled = false
-		
-		setupNavigationBar()
-		setupText()
-		addHideKeyboardGesture()
-	}
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		
-		subscribeToKeyboardNotifications()
-		
-		cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-		cancelButton.isEnabled = imagePickerView.image != nil
-	}
-	
-	override func viewWillDisappear(_ animated: Bool) {
-		super.viewWillDisappear(animated)
-		
-		unsubscribeFromKeyboardNotifications()
-	}
-	
-	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-		super.viewWillTransition(to: size, with: coordinator)
-		
-		if UIDevice.current.orientation == .portrait {
-			stackView.axis = .horizontal
-		} else {
-			stackView.axis = .vertical
-		}
-	}
-	
+	// MARK: -Private methods
 	private func subscribeToKeyboardNotifications() {
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
 											   name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -121,20 +125,20 @@ class MemeEditorController: UIViewController {
 	}
 	
 	private func setupText() {
-		let memeTextAttributes: [String: Any] = [
-			NSAttributedString.Key.strokeColor.rawValue: UIColor.black,
-			NSAttributedString.Key.foregroundColor.rawValue: UIColor.white,
-			NSAttributedString.Key.font.rawValue: UIFont(name: font, size: 40) ?? UIFont.boldSystemFont(ofSize: 40),
-			NSAttributedString.Key.strokeWidth.rawValue: -1
+		let memeTextAttributes: [NSAttributedString.Key: Any] = [
+			NSAttributedString.Key.strokeColor: UIColor.black,
+			NSAttributedString.Key.foregroundColor: UIColor.white,
+			NSAttributedString.Key.font: UIFont(name: font, size: 40) ?? UIFont.boldSystemFont(ofSize: 40),
+			NSAttributedString.Key.strokeWidth: -1
 		]
 		
-		topText.defaultTextAttributes = convertToNSAttributedStringKeyDictionary(memeTextAttributes)
+		topText.defaultTextAttributes = memeTextAttributes
 		topText.textAlignment = .center
 		topText.textColor = .white
 		topText.text = "TOP"
 		topText.delegate = self
 		
-		bottomText.defaultTextAttributes = convertToNSAttributedStringKeyDictionary(memeTextAttributes)
+		bottomText.defaultTextAttributes = memeTextAttributes
 		bottomText.textAlignment = .center
 		bottomText.textColor = .white
 		bottomText.text = "BOTTOM"
@@ -208,6 +212,7 @@ class MemeEditorController: UIViewController {
 		present(pickerController, animated: true, completion: nil)
 	}
 	
+	// MARK: -objc Methods
 	@objc func keyboardWillShow(_ notification: Notification) {
 		if bottomText.isFirstResponder {
 			view.frame.origin.y -= getKeyboardHeight(notification)
@@ -279,8 +284,4 @@ private func convertFromUIImagePickerControllerInfoKeyDictionary(
 
 private func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
 	return input.rawValue
-}
-
-private func convertToNSAttributedStringKeyDictionary(_ input: [String: Any]) -> [NSAttributedString.Key: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }
