@@ -56,19 +56,11 @@ class MemeEditorController: UIViewController {
 	}
 	
 	@IBAction func pickAnImageFromAlbum(_ sender: UIBarButtonItem) {
-		let pickerController = UIImagePickerController()
-		pickerController.delegate = self
-		pickerController.sourceType = .photoLibrary
-		pickerController.allowsEditing = true
-		present(pickerController, animated: true, completion: nil)
+		pickImage(source: .photoLibrary)
 	}
 	
 	@IBAction func pickAnImageFromCamera(_ sender: UIBarButtonItem) {
-		let pickerController = UIImagePickerController()
-		pickerController.delegate = self
-		pickerController.sourceType = .camera
-		pickerController.allowsEditing = true
-		present(pickerController, animated: true, completion: nil)
+		pickImage(source: .camera)
 	}
 	
 	override var prefersStatusBarHidden: Bool {
@@ -206,6 +198,14 @@ class MemeEditorController: UIViewController {
 		
 		alertController.addAction(okAction)
 		self.present(alertController, animated: true, completion: nil)
+	}
+	
+	private func pickImage(source: UIImagePickerController.SourceType) {
+		let pickerController = UIImagePickerController()
+		pickerController.delegate = self
+		pickerController.sourceType = source
+		pickerController.allowsEditing = true
+		present(pickerController, animated: true, completion: nil)
 	}
 	
 	@objc func keyboardWillShow(_ notification: Notification) {
