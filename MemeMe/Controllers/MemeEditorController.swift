@@ -24,8 +24,8 @@ class MemeEditorController: UIViewController {
 	@IBOutlet weak var memeView: UIView!
 	
 	// MARK: -Variables/Constants
-	fileprivate var memedImage: UIImage?
-	fileprivate var font = "Impact"
+	private var memedImage: UIImage?
+	private var font = "Impact"
 	
 	// MARK: -Lifecycle Methods
 	override func viewDidLoad() {

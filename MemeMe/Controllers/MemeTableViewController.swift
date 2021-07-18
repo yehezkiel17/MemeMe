@@ -11,18 +11,28 @@ import UIKit
 
 class MemeTableViewController: UITableViewController {
 	
-	var memes: [Meme] {
+	// MARK: -Variables/Constants
+	private var memes: [Meme] {
 		return getSharedMemes()
 	}
 	
+	//MARK: -Lifecycle Methods
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		tableView.reloadData()
+	}
+	
+	//MARK: -Data Source
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 0
+		return memes.count
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		return UITableViewCell()
 	}
 	
+	//MARK: -Delegate
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
 	}
