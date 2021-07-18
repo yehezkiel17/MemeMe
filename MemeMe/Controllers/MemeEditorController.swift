@@ -125,6 +125,11 @@ class MemeEditorController: UIViewController {
 	}
 	
 	private func setupText() {
+		setupTextField(textField: topText, text: "TOP")
+		setupTextField(textField: bottomText, text: "BOTTOM")
+	}
+	
+	private func setupTextField(textField: UITextField, text: String) {
 		let memeTextAttributes: [NSAttributedString.Key: Any] = [
 			NSAttributedString.Key.strokeColor: UIColor.black,
 			NSAttributedString.Key.foregroundColor: UIColor.white,
@@ -132,17 +137,11 @@ class MemeEditorController: UIViewController {
 			NSAttributedString.Key.strokeWidth: -1
 		]
 		
-		topText.defaultTextAttributes = memeTextAttributes
-		topText.textAlignment = .center
-		topText.textColor = .white
-		topText.text = "TOP"
-		topText.delegate = self
-		
-		bottomText.defaultTextAttributes = memeTextAttributes
-		bottomText.textAlignment = .center
-		bottomText.textColor = .white
-		bottomText.text = "BOTTOM"
-		bottomText.delegate = self
+		textField.defaultTextAttributes = memeTextAttributes
+		textField.textAlignment = .center
+		textField.textColor = .white
+		textField.text = text
+		textField.delegate = self
 	}
 	
 	private func getKeyboardHeight(_ notification: Notification) -> CGFloat {
@@ -213,17 +212,17 @@ class MemeEditorController: UIViewController {
 	}
 	
 	// MARK: -objc Methods
-	@objc func keyboardWillShow(_ notification: Notification) {
+	@objc private func keyboardWillShow(_ notification: Notification) {
 		if bottomText.isFirstResponder {
 			view.frame.origin.y -= getKeyboardHeight(notification)
 		}
 	}
 	
-	@objc func keyboardWillHide(_ notification: Notification) {
+	@objc private func keyboardWillHide(_ notification: Notification) {
 		view.frame.origin.y = 0
 	}
 	
-	@objc func addHideKeyboardGesture() {
+	@objc private func addHideKeyboardGesture() {
 		let tap: UITapGestureRecognizer = UITapGestureRecognizer(
 			target: self,
 			action: #selector(dismissKeyboard))
@@ -231,7 +230,7 @@ class MemeEditorController: UIViewController {
 		view.addGestureRecognizer(tap)
 	}
 	
-	@objc func dismissKeyboard() {
+	@objc private func dismissKeyboard() {
 		view.endEditing(true)
 	}
 }
