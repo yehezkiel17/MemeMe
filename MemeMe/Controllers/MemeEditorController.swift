@@ -72,7 +72,11 @@ class MemeEditorController: UIViewController {
 	@IBAction func shareMeme(_ sender: UIBarButtonItem) {
 		memedImage = generateMemedImage()
 		
-		let activityController = UIActivityViewController(activityItems: [memedImage!], applicationActivities: nil)
+		guard let memedImage = self.memedImage else {
+			return
+		}
+		
+		let activityController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
 		activityController.completionWithItemsHandler = { (_, completed, _, _) in
 			if completed {
 				self.save()
@@ -154,17 +158,24 @@ class MemeEditorController: UIViewController {
 	
 	// Getting the keyboard hight
 	private func getKeyboardHeight(_ notification: Notification) -> CGFloat {
-		let userInfo = notification.userInfo
-		let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+		guard let userInfo = notification.userInfo else {
+			return 0
+		}
+		
+		let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
 		return keyboardSize?.cgRectValue.height ?? 0
 	}
 	
 	// Save the meme struct
 	private func save() {
-		let meme = Meme(topText: topText.text!,
-						bottomText: bottomText.text!,
-						originalImage: imagePickerView.image!,
-						memedImage: memedImage!)
+		guard let originalImage = imagePickerView.image, let memedImage = memedImage else {
+			return
+		}
+		
+		let meme = Meme(topText: (topText.text ?? ""),
+						bottomText: (bottomText.text ?? ""),
+						originalImage: originalImage,
+						memedImage: memedImage)
 		
 		(UIApplication.shared.delegate as? AppDelegate)?.memes.append(meme)
 	}
@@ -175,7 +186,11 @@ class MemeEditorController: UIViewController {
 		
 		UIGraphicsBeginImageContext(memeView.frame.size)
 		memeView.drawHierarchy(in: imagePickerView.frame, afterScreenUpdates: true)
-		let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+		
+		guard let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext() else {
+			return UIImage()
+		}
+		
 		UIGraphicsEndImageContext()
 		
 		hideNavigationBarAndToolbar(isHidden: false)

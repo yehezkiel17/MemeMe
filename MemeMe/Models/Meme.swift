@@ -21,8 +21,11 @@ struct Meme {
 		self.originalImage = originalImage
 		self.memedImage = memedImage
 		
-		let imageRepresentation = self.memedImage!.pngData()
-		let imageData = UIImage(data: imageRepresentation!)
-		UIImageWriteToSavedPhotosAlbum(imageData!, nil, nil, nil)
+		guard let imageRepresentation = self.memedImage?.pngData(),
+			  let imageData = UIImage(data: imageRepresentation) else {
+			return
+		}
+		
+		UIImageWriteToSavedPhotosAlbum(imageData, nil, nil, nil)
 	}
 }
