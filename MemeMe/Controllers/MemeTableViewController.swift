@@ -17,6 +17,16 @@ class MemeTableViewController: UITableViewController {
 	}
 	
 	//MARK: -Lifecycle Methods
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		title = "Sent Memes"
+		
+		setupNavigationBar()
+		setupTableView()
+	}
+	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
@@ -29,11 +39,35 @@ class MemeTableViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return UITableViewCell()
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemeTableViewCell") else {
+			return UITableViewCell()
+		}
+		
+		cell.imageView?.image = memes[indexPath.row].memedImage
+		cell.textLabel?.text = memes[indexPath.row].topText
+		cell.detailTextLabel?.text = memes[indexPath.row].bottomText
+		
+		return cell
 	}
 	
 	//MARK: -Delegate
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
+	}
+	
+	// MARK: -Private methods
+	private func setupNavigationBar() {
+		let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddButton))
+		
+		navigationItem.setRightBarButton(addBarButton, animated: true)
+	}
+	
+	private func setupTableView() {
+		tableView.tableFooterView = UIView()
+	}
+	
+	// MARK: -objc methods
+	@objc private func didTapAddButton() {
+		performSegue(withIdentifier: "createMeme", sender: self)
 	}
 }

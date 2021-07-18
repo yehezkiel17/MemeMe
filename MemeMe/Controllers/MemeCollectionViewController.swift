@@ -23,7 +23,10 @@ class MemeCollectionViewController: UICollectionViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		title = "Sent Memes"
+		
 		setupFlowLayout()
+		setupNavigationBar()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -38,7 +41,13 @@ class MemeCollectionViewController: UICollectionViewController {
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		return UICollectionViewCell()
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionViewCell", for: indexPath) as? MemeCollectionViewCell else {
+			return UICollectionViewCell()
+		}
+		
+		cell.imageView.image = memes[indexPath.item].memedImage
+		
+		return cell
 	}
 	
 	//MARK: -Delegate
@@ -54,5 +63,17 @@ class MemeCollectionViewController: UICollectionViewController {
 		flowLayout.minimumInteritemSpacing = space
 		flowLayout.minimumLineSpacing = space
 		flowLayout.itemSize = CGSize(width: dimension, height: dimension)
+	}
+	
+	// MARK: -Private methods
+	private func setupNavigationBar() {
+		let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddButton))
+		
+		navigationItem.setRightBarButton(addBarButton, animated: true)
+	}
+	
+	// MARK: -objc methods
+	@objc private func didTapAddButton() {
+		performSegue(withIdentifier: "createMeme", sender: self)
 	}
 }
