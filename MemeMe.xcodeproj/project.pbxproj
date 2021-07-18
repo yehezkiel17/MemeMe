@@ -18,6 +18,7 @@
 		C7914C0826A46B1C00D09CA6 /* MemeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7914C0726A46B1C00D09CA6 /* MemeCollectionViewController.swift */; };
 		C7914C0B26A474E400D09CA6 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7914C0A26A474E400D09CA6 /* UIViewController + Extension.swift */; };
 		C7914C0D26A4A81800D09CA6 /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7914C0C26A4A81800D09CA6 /* MemeCollectionViewCell.swift */; };
+		C7914C0F26A4B2A600D09CA6 /* MemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7914C0E26A4B2A600D09CA6 /* MemeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		C7914C0726A46B1C00D09CA6 /* MemeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewController.swift; sourceTree = "<group>"; };
 		C7914C0A26A474E400D09CA6 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		C7914C0C26A4A81800D09CA6 /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
+		C7914C0E26A4B2A600D09CA6 /* MemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			children = (
 				9CE959FF208448E300C210CD /* MemeEditor.storyboard */,
 				C7914C0C26A4A81800D09CA6 /* MemeCollectionViewCell.swift */,
+				C7914C0E26A4B2A600D09CA6 /* MemeTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				9CE959FC208448E300C210CD /* AppDelegate.swift in Sources */,
 				C7914C0B26A474E400D09CA6 /* UIViewController + Extension.swift in Sources */,
 				C7914C0626A46AE100D09CA6 /* MemeTableViewController.swift in Sources */,
+				C7914C0F26A4B2A600D09CA6 /* MemeTableViewCell.swift in Sources */,
 				C7914C0826A46B1C00D09CA6 /* MemeCollectionViewController.swift in Sources */,
 				C7914C0126A357DB00D09CA6 /* Meme.swift in Sources */,
 			);
@@ -312,7 +316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -367,7 +371,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
