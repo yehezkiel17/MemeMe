@@ -68,6 +68,7 @@ class MemeEditorController: UIViewController {
 	}
 	
 	// MARK: -Actions
+	// Share meme through UIActivityViewController
 	@IBAction func shareMeme(_ sender: UIBarButtonItem) {
 		memedImage = generateMemedImage()
 		
@@ -80,6 +81,7 @@ class MemeEditorController: UIViewController {
 		}
 		
 		present(activityController, animated: true, completion: nil)
+		
 		if let popOver = activityController.popoverPresentationController {
 			popOver.sourceView = self.view
 			popOver.barButtonItem = self.shareButton
@@ -90,6 +92,7 @@ class MemeEditorController: UIViewController {
 		showChooseFontAlert()
 	}
 	
+	// Setup some views after tap the cancel buttons
 	@IBAction func cancelMeme(_ sender: UIBarButtonItem) {
 		cancelButton.isEnabled = false
 		imagePickerView.image = nil
@@ -106,6 +109,7 @@ class MemeEditorController: UIViewController {
 	}
 	
 	// MARK: -Private methods
+	// Add the notification observer and call this when controller appears
 	private func subscribeToKeyboardNotifications() {
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
 											   name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -113,22 +117,26 @@ class MemeEditorController: UIViewController {
 											   name: UIResponder.keyboardWillHideNotification, object: nil)
 	}
 	
+	// Remove the notification observer and call this when controller disappears
 	private func unsubscribeFromKeyboardNotifications() {
 		NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
 		NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
 	}
 	
+	// Setup the navigation bar
 	private func setupNavigationBar() {
 		navigationBar.delegate = self
 		navigationBar.backgroundColor = .systemBlue
 		navigationBar.tintColor = .white
 	}
 	
+	// Setup the two of text fields
 	private func setupText() {
 		setupTextField(textField: topText, text: "TOP")
 		setupTextField(textField: bottomText, text: "BOTTOM")
 	}
 	
+	// Setup the text field with attributes
 	private func setupTextField(textField: UITextField, text: String) {
 		let memeTextAttributes: [NSAttributedString.Key: Any] = [
 			NSAttributedString.Key.strokeColor: UIColor.black,
@@ -144,12 +152,14 @@ class MemeEditorController: UIViewController {
 		textField.delegate = self
 	}
 	
+	// Getting the keyboard hight
 	private func getKeyboardHeight(_ notification: Notification) -> CGFloat {
 		let userInfo = notification.userInfo
 		let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
 		return keyboardSize?.cgRectValue.height ?? 0
 	}
 	
+	// Save the meme struct
 	private func save() {
 		let meme = Meme(topText: topText.text!,
 						bottomText: bottomText.text!,
@@ -159,6 +169,7 @@ class MemeEditorController: UIViewController {
 		(UIApplication.shared.delegate as? AppDelegate)?.memes.append(meme)
 	}
 	
+	// Generate the meme image by UI Graphics Image Context
 	private func generateMemedImage() -> UIImage {
 		hideNavigationBarAndToolbar(isHidden: true)
 		
@@ -172,11 +183,13 @@ class MemeEditorController: UIViewController {
 		return memedImage
 	}
 	
+	// Hide the navigation bar and toolbar
 	private func hideNavigationBarAndToolbar(isHidden: Bool) {
 		navigationBar.isHidden = isHidden
 		toolbar.isHidden = isHidden
 	}
 	
+	// The dialog for change the font
 	private func showChooseFontAlert() {
 		let alertController = UIAlertController(title: "Choose The Font",
 												message: "Please choose the font from this list",
@@ -203,6 +216,7 @@ class MemeEditorController: UIViewController {
 		self.present(alertController, animated: true, completion: nil)
 	}
 	
+	// Pick the image based on source
 	private func pickImage(source: UIImagePickerController.SourceType) {
 		let pickerController = UIImagePickerController()
 		pickerController.delegate = self
@@ -212,16 +226,19 @@ class MemeEditorController: UIViewController {
 	}
 	
 	// MARK: -objc Methods
+	// Set the view origin y after showing keyboard
 	@objc private func keyboardWillShow(_ notification: Notification) {
 		if bottomText.isFirstResponder {
 			view.frame.origin.y -= getKeyboardHeight(notification)
 		}
 	}
 	
+	// Set the view origin y after hiding keyboard
 	@objc private func keyboardWillHide(_ notification: Notification) {
 		view.frame.origin.y = 0
 	}
 	
+	// The objc function for show or hide the keyboard from gesture
 	@objc private func addHideKeyboardGesture() {
 		let tap: UITapGestureRecognizer = UITapGestureRecognizer(
 			target: self,
@@ -230,6 +247,7 @@ class MemeEditorController: UIViewController {
 		view.addGestureRecognizer(tap)
 	}
 	
+	// The objc function for dismissKeyboard
 	@objc private func dismissKeyboard() {
 		view.endEditing(true)
 	}
