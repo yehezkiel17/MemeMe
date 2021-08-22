@@ -33,11 +33,11 @@
             <objects>
                 <viewController storyboardIdentifier="memeEditor" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MemeEditorController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMq-Bc-QEb">
-                                <rect key="frame" x="0.0" y="603" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="LXA-Hp-WSX"/>
                                 </constraints>
@@ -89,17 +89,17 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="lC8-Fd-DD3">
-                                <rect key="frame" x="0.0" y="44" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="579"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y7v-Kp-qvE">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="579"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o25-KQ-tjx">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="579"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="9uw-8c-zHx">
-                                                <rect key="frame" x="20" y="77.5" width="335" height="52"/>
+                                                <rect key="frame" x="20" y="87.5" width="335" height="52"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="YpT-RS-fdn"/>
@@ -109,7 +109,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                             </textField>
                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="cdl-Bk-jzP">
-                                                <rect key="frame" x="20" y="429.5" width="335" height="52"/>
+                                                <rect key="frame" x="20" y="439.5" width="335" height="52"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="52" id="vE3-rv-mB5"/>
@@ -181,11 +181,11 @@
             </objects>
             <point key="canvasLocation" x="367" y="459"/>
         </scene>
-        <!--Table-->
+        <!--Navigation Controller-->
         <scene sceneID="VVm-96-pMA">
             <objects>
                 <navigationController id="Ikh-1n-Oaf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Table" image="ico-table" id="ZZe-Rh-jJL"/>
+                    <tabBarItem key="tabBarItem" title="" image="ico-table" id="ZZe-Rh-jJL"/>
                     <navigationItem key="navigationItem" id="D4q-5e-IEV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pcz-Uf-EpC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -240,18 +240,18 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="6hH-QE-jyX"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="createMeme" id="lBy-xG-MBm"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="createMeme" modalPresentationStyle="fullScreen" id="lBy-xG-MBm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FXb-SE-e0p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-778" y="125"/>
         </scene>
-        <!--Collection-->
+        <!--Navigation Controller-->
         <scene sceneID="bSS-0O-POC">
             <objects>
                 <navigationController id="H6m-QJ-Cdf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Collection" image="ico-collection" id="fgg-Ty-xkj"/>
+                    <tabBarItem key="tabBarItem" title="" image="ico-collection" id="fgg-Ty-xkj"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2HD-aS-BZs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -298,7 +298,7 @@
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <connections>
-                                    <outlet property="imageView" destination="9Oe-2h-uow" id="Q9M-ok-BJP"/>
+                                    <outlet property="imageView" destination="9Oe-2h-uow" id="lyR-vr-MUl"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -310,7 +310,7 @@
                     <navigationItem key="navigationItem" id="4EJ-WZ-qfz"/>
                     <connections>
                         <outlet property="flowLayout" destination="lNk-42-RDZ" id="8nI-du-PMK"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="createMeme" id="eNu-wC-puO"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="createMeme" modalPresentationStyle="fullScreen" id="eNu-wC-puO"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIs-xy-woB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

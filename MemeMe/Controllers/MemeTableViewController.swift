@@ -21,14 +21,12 @@ class MemeTableViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		title = "Sent Memes"
-		
 		setupNavigationBar()
 		setupTableView()
 	}
 	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
 		
 		tableView.reloadData()
 	}
@@ -39,7 +37,7 @@ class MemeTableViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemeTableViewCell") else {
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: MemeTableViewCell.description()) else {
 			return UITableViewCell()
 		}
 		
@@ -60,10 +58,12 @@ class MemeTableViewController: UITableViewController {
 		let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddButton))
 		
 		navigationItem.setRightBarButton(addBarButton, animated: true)
+		navigationItem.title = "Sent Memes"
 	}
 	
 	private func setupTableView() {
 		tableView.tableFooterView = UIView()
+		tableView.register(MemeTableViewCell.self, forCellReuseIdentifier: MemeTableViewCell.description())
 	}
 	
 	// MARK: -objc methods

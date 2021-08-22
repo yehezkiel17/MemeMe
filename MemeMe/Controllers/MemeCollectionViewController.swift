@@ -23,14 +23,13 @@ class MemeCollectionViewController: UICollectionViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		title = "Sent Memes"
-		
-		setupFlowLayout()
 		setupNavigationBar()
+		setupCollectionView()
+		setupFlowLayout()
 	}
 	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
 		
 		collectionView.reloadData()
 	}
@@ -41,10 +40,10 @@ class MemeCollectionViewController: UICollectionViewController {
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionViewCell", for: indexPath) as? MemeCollectionViewCell else {
+		
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemeCollectionViewCell.description(), for: indexPath) as? MemeCollectionViewCell else {
 			return UICollectionViewCell()
 		}
-		
 		cell.imageView.image = memes[indexPath.item].memedImage
 		
 		return cell
@@ -56,6 +55,17 @@ class MemeCollectionViewController: UICollectionViewController {
 	}
 	
 	// MARK: -Private methods
+	private func setupNavigationBar() {
+		let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddButton))
+		
+		navigationItem.setRightBarButton(addBarButton, animated: true)
+		navigationItem.title = "Sent Memes"
+	}
+	
+	private func setupCollectionView() {
+		collectionView.register(MemeCollectionViewCell.self, forCellWithReuseIdentifier: MemeCollectionViewCell.description())
+	}
+	
 	private func setupFlowLayout() {
 		let space:CGFloat = 3.0
 		let dimension = (view.frame.size.width - (2 * space)) / 3.0
@@ -63,13 +73,6 @@ class MemeCollectionViewController: UICollectionViewController {
 		flowLayout.minimumInteritemSpacing = space
 		flowLayout.minimumLineSpacing = space
 		flowLayout.itemSize = CGSize(width: dimension, height: dimension)
-	}
-	
-	// MARK: -Private methods
-	private func setupNavigationBar() {
-		let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddButton))
-		
-		navigationItem.setRightBarButton(addBarButton, animated: true)
 	}
 	
 	// MARK: -objc methods
