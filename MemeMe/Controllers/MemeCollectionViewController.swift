@@ -19,7 +19,7 @@ class MemeCollectionViewController: UICollectionViewController {
 		return getSharedMemes()
 	}
 	
-	//MARK: -Lifecycle Methods
+	// MARK: -Lifecycle Methods
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -34,7 +34,7 @@ class MemeCollectionViewController: UICollectionViewController {
 		collectionView.reloadData()
 	}
 	
-	//MARK: -Data Source
+	// MARK: -Data Source
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return memes.count
 	}
@@ -44,12 +44,13 @@ class MemeCollectionViewController: UICollectionViewController {
 		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemeCollectionViewCell.description(), for: indexPath) as? MemeCollectionViewCell else {
 			return UICollectionViewCell()
 		}
+		
 		cell.imageView.image = memes[indexPath.item].memedImage
 		
 		return cell
 	}
 	
-	//MARK: -Delegate
+	// MARK: -Delegate
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		
 	}

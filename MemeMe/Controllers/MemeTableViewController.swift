@@ -16,8 +16,7 @@ class MemeTableViewController: UITableViewController {
 		return getSharedMemes()
 	}
 	
-	//MARK: -Lifecycle Methods
-	
+	// MARK: -Lifecycle Methods
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -31,7 +30,7 @@ class MemeTableViewController: UITableViewController {
 		tableView.reloadData()
 	}
 	
-	//MARK: -Data Source
+	// MARK: -Data Source
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return memes.count
 	}
@@ -48,7 +47,7 @@ class MemeTableViewController: UITableViewController {
 		return cell
 	}
 	
-	//MARK: -Delegate
+	// MARK: -Delegate
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
 	}
