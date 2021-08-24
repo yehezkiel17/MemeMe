@@ -15,6 +15,8 @@ class MemeCollectionViewController: UICollectionViewController {
 	@IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
 	
 	// MARK: -Variables/Constants
+	private var cellIdentifier = "MemeCollectionViewCell"
+	
 	private var memes: [Meme] {
 		return getSharedMemes()
 	}
@@ -41,7 +43,7 @@ class MemeCollectionViewController: UICollectionViewController {
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		
-		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemeCollectionViewCell.description(), for: indexPath) as? MemeCollectionViewCell else {
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? MemeCollectionViewCell else {
 			return UICollectionViewCell()
 		}
 		
@@ -64,11 +66,13 @@ class MemeCollectionViewController: UICollectionViewController {
 	}
 	
 	private func setupCollectionView() {
-		collectionView.register(MemeCollectionViewCell.self, forCellWithReuseIdentifier: MemeCollectionViewCell.description())
+		collectionView.collectionViewLayout = flowLayout
+		
+		collectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
 	}
 	
 	private func setupFlowLayout() {
-		let space:CGFloat = 3.0
+		let space: CGFloat = 3.0
 		let dimension = (view.frame.size.width - (2 * space)) / 3.0
 		
 		flowLayout.minimumInteritemSpacing = space
