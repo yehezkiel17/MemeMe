@@ -30,6 +30,13 @@ class MemeTableViewController: UITableViewController {
 		tableView.reloadData()
 	}
 	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if let detailVC = segue.destination as? MemeDetailViewController {
+			let selectedMeme = memes[tableView.indexPathForSelectedRow?.row ?? 0]
+			detailVC.imageView.image = selectedMeme.memedImage
+		}
+	}
+	
 	// MARK: -Data Source
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return memes.count
@@ -50,7 +57,7 @@ class MemeTableViewController: UITableViewController {
 	
 	// MARK: -Delegate
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
+		performSegue(withIdentifier: "detailMeme", sender: self)
 	}
 	
 	// MARK: -Private methods

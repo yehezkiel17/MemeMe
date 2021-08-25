@@ -11,7 +11,7 @@ import UIKit
 
 class MemeCollectionViewController: UICollectionViewController {
 	
-	//MARK: -Outlets
+	// MARK: -Outlets
 	@IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
 	
 	// MARK: -Variables/Constants
@@ -36,6 +36,13 @@ class MemeCollectionViewController: UICollectionViewController {
 		collectionView.reloadData()
 	}
 	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if let detailVC = segue.destination as? MemeDetailViewController {
+			let selectedMeme = memes[collectionView.indexPathsForSelectedItems?.first?.item ?? 0]
+			detailVC.imageView.image = selectedMeme.memedImage
+		}
+	}
+	
 	// MARK: -Data Source
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return memes.count
@@ -54,7 +61,7 @@ class MemeCollectionViewController: UICollectionViewController {
 	
 	// MARK: -Delegate
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		
+		performSegue(withIdentifier: "detailMeme", sender: self)
 	}
 	
 	// MARK: -Private methods

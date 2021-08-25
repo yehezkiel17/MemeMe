@@ -178,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="367" y="459"/>
+            <point key="canvasLocation" x="362" y="147"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VVm-96-pMA">
@@ -233,6 +233,7 @@
                     <navigationItem key="navigationItem" id="6hH-QE-jyX"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="createMeme" modalPresentationStyle="fullScreen" id="lBy-xG-MBm"/>
+                        <segue destination="QEg-Bo-1ne" kind="show" identifier="detailMeme" id="sVo-Qi-l5h"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FXb-SE-e0p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -280,15 +281,33 @@
                     <connections>
                         <outlet property="flowLayout" destination="mM1-lb-l1h" id="TwN-KI-Yqi"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="createMeme" modalPresentationStyle="fullScreen" id="eNu-wC-puO"/>
+                        <segue destination="QEg-Bo-1ne" kind="show" identifier="detailMeme" id="Gdt-gg-RvT"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIs-xy-woB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-775" y="795"/>
         </scene>
+        <!--Meme Detail View Controller-->
+        <scene sceneID="vkR-R4-exB">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="QEg-Bo-1ne" customClass="MemeDetailViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P2v-SJ-Dq2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Em1-6Y-tX1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="G5p-lz-12b"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d9l-Bj-AH9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="361" y="872"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lBy-xG-MBm"/>
+        <segue reference="Gdt-gg-RvT"/>
+        <segue reference="eNu-wC-puO"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ico-collection" width="30" height="30.5"/>

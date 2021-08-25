@@ -20,6 +20,7 @@
 		C7914C0D26A4A81800D09CA6 /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7914C0C26A4A81800D09CA6 /* MemeCollectionViewCell.swift */; };
 		C7914C0F26A4B2A600D09CA6 /* MemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7914C0E26A4B2A600D09CA6 /* MemeTableViewCell.swift */; };
 		C7E1FB9B26D58116001EFF20 /* MemeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E1FB9A26D58116001EFF20 /* MemeCollectionViewCell.xib */; };
+		C7E1FB9D26D5F32B001EFF20 /* MemeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1FB9C26D5F32B001EFF20 /* MemeDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		C7914C0C26A4A81800D09CA6 /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
 		C7914C0E26A4B2A600D09CA6 /* MemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeTableViewCell.swift; sourceTree = "<group>"; };
 		C7E1FB9A26D58116001EFF20 /* MemeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemeCollectionViewCell.xib; sourceTree = "<group>"; };
+		C7E1FB9C26D5F32B001EFF20 /* MemeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				9CE959FD208448E300C210CD /* MemeEditorController.swift */,
 				C7914C0526A46AE100D09CA6 /* MemeTableViewController.swift */,
 				C7914C0726A46B1C00D09CA6 /* MemeCollectionViewController.swift */,
+				C7E1FB9C26D5F32B001EFF20 /* MemeDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				C7914C0F26A4B2A600D09CA6 /* MemeTableViewCell.swift in Sources */,
 				C7914C0826A46B1C00D09CA6 /* MemeCollectionViewController.swift in Sources */,
 				C7914C0126A357DB00D09CA6 /* Meme.swift in Sources */,
+				C7E1FB9D26D5F32B001EFF20 /* MemeDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
