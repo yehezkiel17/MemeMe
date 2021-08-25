@@ -15,7 +15,7 @@ class MemeCollectionViewController: UICollectionViewController {
 	@IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
 	
 	// MARK: -Variables/Constants
-	private var cellIdentifier = "MemeCollectionViewCell"
+	private let cellIdentifier = "MemeCollectionViewCell"
 	
 	private var memes: [Meme] {
 		return getSharedMemes()
