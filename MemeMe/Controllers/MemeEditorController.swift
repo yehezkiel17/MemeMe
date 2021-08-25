@@ -44,7 +44,6 @@ class MemeEditorController: UIViewController {
 		subscribeToKeyboardNotifications()
 		
 		cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-		cancelButton.isEnabled = imagePickerView.image != nil
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -98,10 +97,7 @@ class MemeEditorController: UIViewController {
 	
 	// Setup some views after tap the cancel buttons
 	@IBAction func cancelMeme(_ sender: UIBarButtonItem) {
-		cancelButton.isEnabled = false
-		imagePickerView.image = nil
-		shareButton.isEnabled = false
-		setupText()
+		dismiss(animated: true, completion: nil)
 	}
 	
 	@IBAction func pickAnImageFromAlbum(_ sender: UIBarButtonItem) {
@@ -280,7 +276,6 @@ extension MemeEditorController: UIImagePickerControllerDelegate, UINavigationCon
 			imagePickerView.contentMode = .scaleAspectFit
 		}
 		shareButton.isEnabled = true
-		cancelButton.isEnabled = true
 		
 		dismiss(animated: true, completion: nil)
 	}
