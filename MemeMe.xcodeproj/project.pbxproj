@@ -21,6 +21,7 @@
 		C7914C0F26A4B2A600D09CA6 /* MemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7914C0E26A4B2A600D09CA6 /* MemeTableViewCell.swift */; };
 		C7E1FB9B26D58116001EFF20 /* MemeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7E1FB9A26D58116001EFF20 /* MemeCollectionViewCell.xib */; };
 		C7E1FB9D26D5F32B001EFF20 /* MemeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1FB9C26D5F32B001EFF20 /* MemeDetailViewController.swift */; };
+		C7E1FBA026D6477C001EFF20 /* MemeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1FB9F26D6477C001EFF20 /* MemeStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		C7914C0E26A4B2A600D09CA6 /* MemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeTableViewCell.swift; sourceTree = "<group>"; };
 		C7E1FB9A26D58116001EFF20 /* MemeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemeCollectionViewCell.xib; sourceTree = "<group>"; };
 		C7E1FB9C26D5F32B001EFF20 /* MemeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeDetailViewController.swift; sourceTree = "<group>"; };
+		C7E1FB9F26D6477C001EFF20 /* MemeStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		9CE959FA208448E300C210CD /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
+				C7E1FB9E26D6475F001EFF20 /* Storages */,
 				C7914C0926A474CE00D09CA6 /* Extensions */,
 				C7914BFD26A3579500D09CA6 /* Controllers */,
 				C7914BFC26A3578F00D09CA6 /* Models */,
@@ -145,6 +148,14 @@
 				C7914C0A26A474E400D09CA6 /* UIViewController + Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C7E1FB9E26D6475F001EFF20 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				C7E1FB9F26D6477C001EFF20 /* MemeStorage.swift */,
+			);
+			path = Storages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +255,7 @@
 				C7914C0B26A474E400D09CA6 /* UIViewController + Extension.swift in Sources */,
 				C7914C0626A46AE100D09CA6 /* MemeTableViewController.swift in Sources */,
 				C7914C0F26A4B2A600D09CA6 /* MemeTableViewCell.swift in Sources */,
+				C7E1FBA026D6477C001EFF20 /* MemeStorage.swift in Sources */,
 				C7914C0826A46B1C00D09CA6 /* MemeCollectionViewController.swift in Sources */,
 				C7914C0126A357DB00D09CA6 /* Meme.swift in Sources */,
 				C7E1FB9D26D5F32B001EFF20 /* MemeDetailViewController.swift in Sources */,

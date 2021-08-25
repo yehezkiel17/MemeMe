@@ -11,14 +11,9 @@ import UIKit
 
 extension UIViewController {
 	
-	// Get the shared memes from app delegate object
+	// Get the shared memes from meme storage
 	func getSharedMemes() -> [Meme] {
-		let object = UIApplication.shared.delegate
-		
-		guard let appDelegate = object as? AppDelegate else {
-			return []
-		}
-		
-		return appDelegate.memes
+		let memeStorage = MemeStorage.shared
+		return memeStorage.memes
 	}
 }

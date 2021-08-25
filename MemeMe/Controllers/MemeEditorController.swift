@@ -24,6 +24,7 @@ class MemeEditorController: UIViewController {
 	@IBOutlet weak var memeView: UIView!
 	
 	// MARK: -Variables/Constants
+	private var memeStorage = MemeStorage.shared
 	private var memedImage: UIImage?
 	private var font = "Impact"
 	
@@ -173,7 +174,7 @@ class MemeEditorController: UIViewController {
 						originalImage: originalImage,
 						memedImage: memedImage)
 		
-		(UIApplication.shared.delegate as? AppDelegate)?.memes.append(meme)
+		memeStorage.memes.append(meme)
 	}
 	
 	// Generate the meme image by UI Graphics Image Context
